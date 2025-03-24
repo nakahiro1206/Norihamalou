@@ -8,6 +8,9 @@ import Menu from "../menu.json";
 import Close from "../close.json";
 import Crown from "../../assets/lewtedlh.json";
 import { Player } from "@lordicon/react";
+import { useMenuContext } from "@/app/provider";
+import { exhaustiveMatchingGuard } from "@/types/guard";
+import { cn } from "@/lib/utils";
 
 type Props = {};
 
@@ -20,25 +23,93 @@ type Props = {};
 
 //   return <Player ref={playerRef} icon={ICON} />;
 // }
+//
 
-export const Header: FC<Props> = (props) => {
+const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
+  isOpen,
+  toggleMenu,
+}) => {
   const lottieRef = useRef(null) as LottieRef;
-  const playerRef = useRef<Player>(null);
-  useEffect(() => {
-    playerRef.current?.playFromBeginning();
-  }, []);
   const pause = () => {
     if (lottieRef.current) {
       lottieRef.current.pause();
     }
   };
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const openMenu = () => {
-    setIsMenuOpen(true);
-  };
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+
+  switch (isOpen) {
+    case false:
+      return (
+        <button className="flex gap-2" onClick={toggleMenu}>
+          <span>Menu</span>
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={Menu}
+            loop={true}
+            className="w-6 h-6"
+          />
+        </button>
+      );
+    case null:
+      return (
+        <button className="flex gap-2" onClick={toggleMenu}>
+          <span>Menu</span>
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={Menu}
+            loop={true}
+            className="w-6 h-6"
+          />
+        </button>
+      );
+    case true:
+      return (
+        <button className="flex gap-2" onClick={toggleMenu}>
+          <span>Close</span>
+          {/* <Player ref={playerRef} icon={Crown} /> */}
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={Close}
+            loop={0}
+            className="w-6 h-6"
+          />
+        </button>
+      );
+    default:
+      return exhaustiveMatchingGuard(isOpen);
+  }
+};
+
+const MenuArea: FC<{ isOpen: boolean | null }> = ({ isOpen }) => {
+  const baseClasses =
+    "w-full overflow-hidden fixed top-[calc(5lvh)] bg-gradient-to-r from-red-500 to-white rounded-lg";
+  switch (isOpen) {
+    case null:
+      return null;
+    case true:
+      return (
+        <div className={cn(baseClasses, "animate-expand-down")}>
+          Collapsible Menu here
+        </div>
+      );
+    case false:
+      return (
+        <div className={cn(baseClasses, "animate-collapse")}>
+          Collapsible Menu here
+        </div>
+      );
+    default:
+      return exhaustiveMatchingGuard(isOpen);
+  }
+};
+
+export const Header: FC<Props> = (props) => {
+  const { isOpen, toggleMenu } = useMenuContext();
+
+  const playerRef = useRef<Player>(null);
+  useEffect(() => {
+    playerRef.current?.playFromBeginning();
+  }, []);
+
   return (
     <header>
       <div className="w-full h-[calc(5lvh)] fixed top-0 bg-gradient-to-r from-red-500 to-white rounded-lg">
@@ -46,30 +117,9 @@ export const Header: FC<Props> = (props) => {
           <span className="text-white font-extrabold text-xl">
             Norihama-Lou
           </span>
-
-          {isMenuOpen ? (
-            <button className="flex gap-2" onClick={closeMenu}>
-              <span>Close</span>
-              {/* <Player ref={playerRef} icon={Crown} /> */}
-              <Lottie
-                lottieRef={lottieRef}
-                animationData={Close}
-                loop={0}
-                className="w-6 h-6"
-              />
-            </button>
-          ) : (
-            <button className="flex gap-2" onClick={openMenu}>
-              <span>Menu</span>
-              <Lottie
-                lottieRef={lottieRef}
-                animationData={Menu}
-                loop={true}
-                className="w-6 h-6"
-              />
-            </button>
-          )}
+          <MenuTrigger isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
+        <MenuArea isOpen={isOpen} />
       </div>
 
       {/* <UseAnimations animation={Menu2} size={20} strokeColor="#000" />

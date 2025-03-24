@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { MenuProvider } from "@/app/provider";
+import { FreezeWhenOverlapped } from "@/components/FreezeWhenOverlapped";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,13 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-full h-lvh">
+        <MenuProvider>
           <Header />
-          <div className="w-full  overflow-y-scroll">
-            {children}
-            {children}
-          </div>
-        </div>
+          <FreezeWhenOverlapped>{children}</FreezeWhenOverlapped>
+        </MenuProvider>
       </body>
     </html>
   );
