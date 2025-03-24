@@ -4,9 +4,9 @@ import React, { FC, useRef, useState, useEffect } from "react";
 import UseAnimations from "react-useanimations";
 import Menu2 from "react-useanimations/lib/menu";
 import Lottie, { LottieRef } from "lottie-react";
-import Menu from "../menu.json";
-import Close from "../close.json";
-import Crown from "../../assets/lewtedlh.json";
+import Menu from "@/icons/menu.json";
+import Close from "@/icons/close.json";
+import Crown from "@/icons/lewtedlh.json";
 import { Player } from "@lordicon/react";
 import { useMenuContext } from "@/app/provider";
 import { exhaustiveMatchingGuard } from "@/types/guard";
@@ -80,8 +80,7 @@ const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
 };
 
 const MenuArea: FC<{ isOpen: boolean | null }> = ({ isOpen }) => {
-  const baseClasses =
-    "w-full overflow-hidden fixed top-[calc(5lvh)] bg-gradient-to-r from-red-500 to-white rounded-lg";
+  const baseClasses = "w-full fixed top-[calc(5lvh)] rounded-b-lg bg-white";
   switch (isOpen) {
     case null:
       return null;
@@ -111,8 +110,8 @@ export const Header: FC<Props> = (props) => {
   }, []);
 
   return (
-    <header>
-      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-gradient-to-r from-red-500 to-white rounded-lg">
+    <div className="w-full h-[calc(5lvh)]">
+      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-gradient-to-r from-red-500 to-white">
         <div className="flex h-full justify-between gap-2 items-center px-2">
           <span className="text-white font-extrabold text-xl">
             Norihama-Lou
@@ -124,6 +123,6 @@ export const Header: FC<Props> = (props) => {
 
       {/* <UseAnimations animation={Menu2} size={20} strokeColor="#000" />
       <h1>Mapo Tofu</h1> */}
-    </header>
+    </div>
   );
 };

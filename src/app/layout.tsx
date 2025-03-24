@@ -31,8 +31,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <MenuProvider>
-          <Header />
-          <FreezeWhenOverlapped>{children}</FreezeWhenOverlapped>
+          <FreezeWhenOverlapped>
+            <Header />
+            {children}
+          </FreezeWhenOverlapped>
         </MenuProvider>
       </body>
     </html>
