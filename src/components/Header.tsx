@@ -11,6 +11,8 @@ import { Player } from "@lordicon/react";
 import { useMenuContext } from "@/app/provider";
 import { exhaustiveMatchingGuard } from "@/types/guard";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
@@ -79,22 +81,67 @@ const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
   }
 };
 
-const MenuArea: FC<{ isOpen: boolean | null }> = ({ isOpen }) => {
-  const baseClasses = "w-full fixed top-[calc(5lvh)] rounded-b-lg bg-white";
+const MenuContent: FC<{ className: string; toggleMenu: () => void }> = ({
+  className,
+  toggleMenu,
+}) => {
+  return (
+    <div className={className}>
+      <div className="w-full h-[calc(10vh)] px-4 pb-2 pt-4">
+        <Link
+          href="/general-info"
+          onClick={toggleMenu}
+          className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in"
+        >
+          GENERAL INFO
+        </Link>
+      </div>
+      <div className="w-full h-[calc(10vh)] px-4 py-2">
+        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
+          FOOD MENU
+        </div>
+      </div>
+      <div className="w-full h-[calc(10vh)] px-4 py-2">
+        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
+          WHAT IS NORIHAMA-LOU?
+        </div>
+      </div>
+      <div className="w-full h-[calc(10vh)] px-4 py-2">
+        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
+          制作秘話
+        </div>
+      </div>
+      <div className="w-full h-[calc(10vh)] px-4 py-2">
+        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
+          BONUS TIPS
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MenuArea: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
+  isOpen,
+  toggleMenu,
+}) => {
+  const baseClasses =
+    "w-full fixed top-[calc(5lvh)] overflow-hidden rounded-b-lg bg-white text-center";
   switch (isOpen) {
     case null:
       return null;
     case true:
       return (
-        <div className={cn(baseClasses, "animate-expand-down")}>
-          Collapsible Menu here
-        </div>
+        <MenuContent
+          className={cn(baseClasses, "animate-expand-down")}
+          toggleMenu={toggleMenu}
+        />
       );
     case false:
       return (
-        <div className={cn(baseClasses, "animate-collapse")}>
-          Collapsible Menu here
-        </div>
+        <MenuContent
+          className={cn(baseClasses, "animate-collapse")}
+          toggleMenu={() => {}}
+        />
       );
     default:
       return exhaustiveMatchingGuard(isOpen);
@@ -111,14 +158,21 @@ export const Header: FC<Props> = (props) => {
 
   return (
     <div className="w-full h-[calc(5lvh)]">
-      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-gradient-to-r from-red-500 to-white">
+      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-[rgba(208,33,26,255)]">
         <div className="flex h-full justify-between gap-2 items-center px-2">
+          <p className="text-white text-xl  font-bold">{"乘濵楼"}</p>
           <span className="text-white font-extrabold text-xl">
-            Norihama-Lou
+            <Image
+              className="h-[calc(5lvh)] w-[calc(5lvh)]"
+              src="/icon.png"
+              width={500}
+              height={500}
+              alt="Norihama-lou icon"
+            />
           </span>
           <MenuTrigger isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
-        <MenuArea isOpen={isOpen} />
+        <MenuArea isOpen={isOpen} toggleMenu={toggleMenu} />
       </div>
 
       {/* <UseAnimations animation={Menu2} size={20} strokeColor="#000" />
