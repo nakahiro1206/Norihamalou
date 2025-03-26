@@ -1,11 +1,20 @@
 import { css, sva, cva } from "@panda/css";
 
-export const menuItemFrameStyles = css.raw({
-  width: "full",
-  height: "calc(10vh)",
-  paddingX: "4",
-  paddingBottom: "2",
-  paddingTop: "2",
+export const menuItemFrameStyles = cva({
+  base: {
+    width: "full",
+    height: "calc(10vh)",
+    paddingX: "4",
+    paddingBottom: "2",
+    paddingTop: "2",
+  },
+  variants: {
+    order: {
+      "1st": {
+        paddingTop: "4",
+      },
+    },
+  },
 });
 
 export const menuWrapperStyles = cva({
@@ -29,6 +38,36 @@ export const menuWrapperStyles = cva({
       closed: {
         animationName: "collapseUp",
         animationDuration: "0.5s",
+        animationTimingFunction: "ease-in-out",
+        animationFillMode: "forwards",
+      },
+    },
+  },
+  defaultVariants: {
+    state: "closed",
+  },
+});
+
+export const mediaIconStyles = cva({
+  base: {
+    width: "full",
+    gap: "0.5rem",
+    display: "flex",
+    justifyContent: "center",
+  },
+  variants: {
+    state: {
+      open: {
+        animationName: "moveIn",
+        animationDuration: "0.6s",
+        animationDelay: "0.25s",
+        animationTimingFunction: "ease-in-out",
+        animationFillMode: "forwards",
+      },
+      closed: {
+        animationName: "moveOut",
+        animationDuration: "0.6s",
+        animationDelay: "0s",
         animationTimingFunction: "ease-in-out",
         animationFillMode: "forwards",
       },
@@ -103,27 +142,27 @@ export const menuItemStyles = cva({
     {
       state: "closed",
       order: "1st",
-      css: { animationDuration: "0.5s", animationDelay: "0.2s" },
+      css: { animationDuration: "0.1s", animationDelay: "0.25s" },
     },
     {
       state: "closed",
       order: "2nd",
-      css: { animationDuration: "0.4s", animationDelay: "0.15s" },
+      css: { animationDuration: "0.2s", animationDelay: "0.2s" },
     },
     {
       state: "closed",
       order: "3rd",
-      css: { animationDuration: "0.3s", animationDelay: "0.1s" },
+      css: { animationDuration: "0.3s", animationDelay: "0.15s" },
     },
     {
       state: "closed",
       order: "4th",
-      css: { animationDuration: "0.2s", animationDelay: "0.05s" },
+      css: { animationDuration: "0.4s", animationDelay: "0.1s" },
     },
     {
       state: "closed",
       order: "5th",
-      css: { animationDuration: "0.1s", animationDelay: "0s" },
+      css: { animationDuration: "0.5s", animationDelay: "0.05s" },
     },
   ],
 
