@@ -119,7 +119,9 @@ export const Header: FC = () => {
               fontSize: "3xl",
             })}
           >
-            <Link href="/">{"乘濵楼"}</Link>
+            <Link href="/" onClick={toggleMenu}>
+              {"乘濵楼"}
+            </Link>
           </p>
           <MenuTrigger isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
