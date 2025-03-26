@@ -119,7 +119,14 @@ export const Header: FC = () => {
               fontSize: "3xl",
             })}
           >
-            <Link href="/" onClick={toggleMenu}>
+            <Link
+              href="/"
+              onClick={() => {
+                if (isOpen === true) {
+                  toggleMenu();
+                }
+              }}
+            >
               {"乘濵楼"}
             </Link>
           </p>
