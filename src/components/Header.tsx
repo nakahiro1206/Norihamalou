@@ -13,6 +13,12 @@ import { exhaustiveMatchingGuard } from "@/types/guard";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { css } from "@panda/css";
+import {
+  menuItemStyles,
+  menuItemFrameStyles,
+  menuWrapperStyles,
+} from "./Header.recipe";
 
 type Props = {};
 
@@ -42,7 +48,7 @@ const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
     case false:
       return (
         <button className="flex gap-2" onClick={toggleMenu}>
-          <span>Menu</span>
+          <span>MENU</span>
           <Lottie
             lottieRef={lottieRef}
             animationData={Menu}
@@ -81,70 +87,76 @@ const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
   }
 };
 
-const MenuContent: FC<{ className: string; toggleMenu: () => void }> = ({
-  className,
-  toggleMenu,
-}) => {
-  return (
-    <div className={className}>
-      <div className="w-full h-[calc(10vh)] px-4 pb-2 pt-4">
-        <Link
-          href="/general-info"
-          onClick={toggleMenu}
-          className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in"
-        >
-          GENERAL INFO
-        </Link>
-      </div>
-      <div className="w-full h-[calc(10vh)] px-4 py-2">
-        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
-          FOOD MENU
-        </div>
-      </div>
-      <div className="w-full h-[calc(10vh)] px-4 py-2">
-        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
-          WHAT IS NORIHAMA-LOU?
-        </div>
-      </div>
-      <div className="w-full h-[calc(10vh)] px-4 py-2">
-        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
-          制作秘話
-        </div>
-      </div>
-      <div className="w-full h-[calc(10vh)] px-4 py-2">
-        <div className="flex h-full items-center justify-center bg-gray-100 rounded-xl animate-move-in">
-          BONUS TIPS
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const MenuArea: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
   isOpen,
   toggleMenu,
 }) => {
-  const baseClasses =
-    "w-full fixed top-[calc(5lvh)] overflow-hidden rounded-b-lg bg-white text-center";
+  const menuWrapperClass = menuWrapperStyles({
+    state: isOpen ? "open" : "closed",
+  });
   switch (isOpen) {
+    default:
+      return exhaustiveMatchingGuard(isOpen);
     case null:
       return null;
     case true:
-      return (
-        <MenuContent
-          className={cn(baseClasses, "animate-expand-down")}
-          toggleMenu={toggleMenu}
-        />
-      );
     case false:
       return (
-        <MenuContent
-          className={cn(baseClasses, "animate-collapse")}
-          toggleMenu={() => {}}
-        />
+        <div className={menuWrapperClass}>
+          <div className={css(menuItemFrameStyles, { paddingTop: "4" })}>
+            <Link
+              href="/general-info"
+              onClick={toggleMenu}
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "1st",
+              })}
+            >
+              GENERAL INFO
+            </Link>
+          </div>
+          <div className={css(menuItemFrameStyles)}>
+            <div
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "2nd",
+              })}
+            >
+              FOOD MENU
+            </div>
+          </div>
+          <div className={css(menuItemFrameStyles)}>
+            <div
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "3rd",
+              })}
+            >
+              WHAT IS NORIHAMA-LOU?
+            </div>
+          </div>
+          <div className={css(menuItemFrameStyles)}>
+            <div
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "4th",
+              })}
+            >
+              制作秘話
+            </div>
+          </div>
+          <div className={css(menuItemFrameStyles)}>
+            <div
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "5th",
+              })}
+            >
+              BONUS TIPS
+            </div>
+          </div>
+        </div>
       );
-    default:
-      return exhaustiveMatchingGuard(isOpen);
   }
 };
 
@@ -158,10 +170,10 @@ export const Header: FC<Props> = (props) => {
 
   return (
     <div className="w-full h-[calc(5lvh)]">
-      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-[rgba(208,33,26,255)]">
+      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-gradient-to-r to-white via-[rgba(208,33,26,255)] from-[rgba(208,33,26,255)]">
         <div className="flex h-full justify-between gap-2 items-center px-2">
-          <p className="text-white text-xl  font-bold">{"乘濵楼"}</p>
-          <span className="text-white font-extrabold text-xl">
+          <p className="text-[rgba(246,230,208,255)] text-3xl">{"乘濵楼"}</p>
+          {/* <span className="text-white font-extrabold text-xl">
             <Image
               className="h-[calc(5lvh)] w-[calc(5lvh)]"
               src="/icon.png"
@@ -169,7 +181,7 @@ export const Header: FC<Props> = (props) => {
               height={500}
               alt="Norihama-lou icon"
             />
-          </span>
+          </span> */}
           <MenuTrigger isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
         <MenuArea isOpen={isOpen} toggleMenu={toggleMenu} />
