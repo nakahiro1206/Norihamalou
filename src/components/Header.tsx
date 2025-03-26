@@ -1,84 +1,63 @@
 "use client";
 import React, { FC, useRef, useState, useEffect } from "react";
-// const ICON = require("./assets/lock.json");
-import UseAnimations from "react-useanimations";
-import Menu2 from "react-useanimations/lib/menu";
-import Lottie, { LottieRef } from "lottie-react";
-import Menu from "@/icons/menu.json";
-import Close from "@/icons/close.json";
-import Crown from "@/icons/lewtedlh.json";
 import { Player } from "@lordicon/react";
 import { useMenuContext } from "@/app/provider";
 import { exhaustiveMatchingGuard } from "@/types/guard";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import { css } from "@panda/css";
+import dynamic from "next/dynamic";
 import {
   menuItemStyles,
   menuItemFrameStyles,
   menuWrapperStyles,
 } from "./Header.recipe";
 
-type Props = {};
-
-// export default function PlayOnce() {
-//   const playerRef = useRef<Player>(null);
-
-//   useEffect(() => {
-//     playerRef.current?.playFromBeginning();
-//   }, []);
-
-//   return <Player ref={playerRef} icon={ICON} />;
-// }
-//
+const MenuIcon = dynamic(() => import("@/icons/MenuIcon"), { ssr: false });
+const CloseIcon = dynamic(() => import("@/icons/CloseIcon"), { ssr: false });
 
 const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
   isOpen,
   toggleMenu,
 }) => {
-  const lottieRef = useRef(null) as LottieRef;
-  const pause = () => {
-    if (lottieRef.current) {
-      lottieRef.current.pause();
-    }
-  };
-
   switch (isOpen) {
     case false:
-      return (
-        <button className="flex gap-2" onClick={toggleMenu}>
-          <span>MENU</span>
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={Menu}
-            loop={true}
-            className="w-6 h-6"
-          />
-        </button>
-      );
     case null:
       return (
-        <button className="flex gap-2" onClick={toggleMenu}>
-          <span>Menu</span>
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={Menu}
+        <button
+          className={css({
+            display: "flex",
+            gap: "0.5rem",
+            textAlign: "end",
+          })}
+          onClick={toggleMenu}
+        >
+          <span>MENU</span>
+          <MenuIcon
             loop={true}
-            className="w-6 h-6"
+            className={css({
+              width: "1.5rem",
+              height: "1.5rem",
+            })}
           />
         </button>
       );
     case true:
       return (
-        <button className="flex gap-2" onClick={toggleMenu}>
-          <span>Close</span>
-          {/* <Player ref={playerRef} icon={Crown} /> */}
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={Close}
+        <button
+          className={css({
+            display: "flex",
+            gap: "0.5rem",
+            textAlign: "end",
+          })}
+          onClick={toggleMenu}
+        >
+          <span>CLOSE</span>
+          <CloseIcon
             loop={0}
-            className="w-6 h-6"
+            className={css({
+              width: "1.5rem",
+              height: "1.5rem",
+            })}
           />
         </button>
       );
@@ -160,7 +139,7 @@ const MenuArea: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
   }
 };
 
-export const Header: FC<Props> = (props) => {
+export const Header: FC = () => {
   const { isOpen, toggleMenu } = useMenuContext();
 
   const playerRef = useRef<Player>(null);
@@ -169,26 +148,46 @@ export const Header: FC<Props> = (props) => {
   }, []);
 
   return (
-    <div className="w-full h-[calc(5lvh)]">
-      <div className="w-full h-[calc(5lvh)] fixed top-0 bg-gradient-to-r to-white via-[rgba(208,33,26,255)] from-[rgba(208,33,26,255)]">
-        <div className="flex h-full justify-between gap-2 items-center px-2">
-          <p className="text-[rgba(246,230,208,255)] text-3xl">{"乘濵楼"}</p>
-          {/* <span className="text-white font-extrabold text-xl">
-            <Image
-              className="h-[calc(5lvh)] w-[calc(5lvh)]"
-              src="/icon.png"
-              width={500}
-              height={500}
-              alt="Norihama-lou icon"
-            />
-          </span> */}
+    <div
+      className={css({
+        width: "full",
+        height: "5lvh",
+      })}
+    >
+      <div
+        className={css({
+          width: "full",
+          height: "5lvh",
+          position: "fixed",
+          top: 0,
+          backgroundGradient: "to-r",
+          gradientTo: "white",
+          gradientVia: "primary",
+          gradientFrom: "primary",
+        })}
+      >
+        <div
+          className={css({
+            display: "flex",
+            height: "full",
+            justifyContent: "space-between",
+            gap: "2",
+            alignItems: "center",
+            paddingX: "2",
+          })}
+        >
+          <p
+            className={css({
+              color: "beige",
+              fontSize: "3xl",
+            })}
+          >
+            {"乘濵楼"}
+          </p>
           <MenuTrigger isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
         <MenuArea isOpen={isOpen} toggleMenu={toggleMenu} />
       </div>
-
-      {/* <UseAnimations animation={Menu2} size={20} strokeColor="#000" />
-      <h1>Mapo Tofu</h1> */}
     </div>
   );
 };
