@@ -1,16 +1,24 @@
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
-  // Whether to use css reset
   preflight: true,
-
-  // Where to look for your css declarations
-  include: ["./src/components/**/*.{ts,tsx,js,jsx}", "./src/app/**/*.{ts,tsx,js,jsx}"],
-
-  // Files to exclude
+  include: ["./src/**/*.{ts,tsx,js,jsx}", "./pages/**/*.{ts,tsx,js,jsx}"],
   exclude: [],
-
-  // Useful for theme customization
+  outdir: "styled-system",
+  layers: {
+    utilities: "panda_utilities",
+  },
+  utilities: {
+    extend: {
+      br: {
+        className: "rounded", // css({ br: "sm" }) => rounded-sm
+        values: "radii", // connect values to the radii tokens
+        transform(value) {
+          return { borderRadius: value };
+        },
+      },
+    },
+  },
   theme: {
     extend: {
       breakpoints: {
@@ -97,7 +105,4 @@ export default defineConfig({
       },
     },
   },
-
-  // The output directory for your css system
-  outdir: "styled-system",
 });
