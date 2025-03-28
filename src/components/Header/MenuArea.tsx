@@ -90,18 +90,20 @@ export const MenuArea: FC<{
             <div
               className={mediaIconStyles({ state: isOpen ? "open" : "closed" })}
             >
-              <RiInstagramLine
+              {/* <RiInstagramLine
                 className={css({
                   width: "2rem",
                   height: "2rem",
                 })}
-              />
-              <RiTwitterXLine
-                className={css({
-                  width: "2rem",
-                  height: "2rem",
-                })}
-              />
+              /> */}
+              <Link href="https://x.com/Norihamaro">
+                <RiTwitterXLine
+                  className={css({
+                    width: "2rem",
+                    height: "2rem",
+                  })}
+                />
+              </Link>
             </div>
           </div>
         </div>
