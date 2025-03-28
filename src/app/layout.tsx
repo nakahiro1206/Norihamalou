@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, Hina_Mincho } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import { MenuProvider } from "@/app/provider";
-import { FreezeWhenOverlapped } from "@/components/FreezeWhenOverlapped";
+import { FreezeWhileMenuOpen } from "@/components/FreezeWhileMenuOpen";
+import { css } from "@panda/css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,13 +36,15 @@ export default function RootLayout({
     <html lang="en">
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        className={hinaMincho.className}
+        className={`${hinaMincho.className} ${css({
+          backgroundColor: "primary",
+        })}`}
       >
         <MenuProvider>
-          <FreezeWhenOverlapped>
+          <FreezeWhileMenuOpen>
             <Header />
             {children}
-          </FreezeWhenOverlapped>
+          </FreezeWhileMenuOpen>
         </MenuProvider>
       </body>
     </html>
