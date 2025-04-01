@@ -2,6 +2,10 @@
 import { FC } from "react";
 import Image from "next/image";
 import { css } from "@panda/css";
+import { FoodDrinkMenu } from "./Menu";
+import { Access } from "./Access";
+import { Section } from "./Section";
+import { WaitingTimes } from "./WaitTimes";
 
 export const Main: FC = () => {
   return (
@@ -37,66 +41,76 @@ export const Main: FC = () => {
           backgroundColor: "white",
         })}
       >
-        <div
-          className={css({
-            width: "full",
-            rounded: "lg",
-            padding: "0.5rem",
-          })}
-        >
+        <Section id="greetings">
           <div
             className={css({
               width: "full",
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: "beige",
               rounded: "lg",
-              gap: "0.5rem",
+              padding: "0.5rem",
             })}
           >
-            <Image
-              src="/mapo.tiff"
-              height={500}
-              width={500}
-              alt="Mapo Tofu"
+            <div
               className={css({
-                width: "55%",
-                roundedLeft: "lg",
+                width: "full",
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "beige",
+                rounded: "lg",
+                gap: "0.5rem",
               })}
-            />
-            <p>{`数々の名店の麻婆豆腐を食べ巡った経験を活かし、この数年間麻婆豆腐作りに熱中してきました。
+            >
+              <Image
+                src="/mapo.tiff"
+                height={500}
+                width={500}
+                alt="Mapo Tofu"
+                className={css({
+                  width: "55%",
+                  roundedLeft: "lg",
+                })}
+              />
+              <p
+                className={css({
+                  color: "black",
+                })}
+              >
+                {`数々の名店の麻婆豆腐を食べ巡った経験を活かし、この数年間麻婆豆腐作りに熱中してきました。
           その集大成に相応しい究極の麻婆豆腐が出来たと自負しております。
 
           皆さまのご来店を心よりお待ちしております。
-          ー 乘濵駿平`}</p>
+          ー 乘濵駿平`}
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          className={css({
-            width: "full",
-            rounded: "lg",
-            padding: "0.5rem",
-          })}
-        >
           <div
             className={css({
-              backgroundColor: "beige",
+              width: "full",
               rounded: "lg",
+              padding: "0.5rem",
             })}
           >
-            <p>{"お待ちしております的な一言？"}</p>
-            <Image
+            <div
               className={css({
-                width: "full",
-                roundedBottom: "lg",
+                backgroundColor: "beige",
+                rounded: "lg",
               })}
-              alt="Mapo Tofu Stand"
-              height={500}
-              width={500}
-              src="/mapo-stand.jpg"
-            />
+            >
+              <p>{"お待ちしております的な一言？"}</p>
+              <Image
+                className={css({
+                  width: "full",
+                  roundedBottom: "lg",
+                })}
+                alt="Mapo Tofu Stand"
+                height={500}
+                width={500}
+                src="/mapo-stand.jpg"
+              />
+            </div>
           </div>
-        </div>
+        </Section>
+        <FoodDrinkMenu />
+        <Access />
         {/* <Image
           className={css({
             width: "full",
@@ -131,18 +145,19 @@ export const Main: FC = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "beige",
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
             rounded: "full",
             marginBottom: "0.5rem",
           })}
         >
           Anticipated Waiting Time
+          <WaitingTimes />
         </div>
         <div
           className={css({
             width: "full",
             height: "5lvh",
-            backgroundColor: "beige",
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
             rounded: "xl",
           })}
         >

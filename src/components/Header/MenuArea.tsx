@@ -28,7 +28,8 @@ export const MenuArea: FC<{
         <div className={menuWrapperClass}>
           <div className={menuItemFrameStyles({ order: "1st" })}>
             <Link
-              href="/menu"
+              // href="/menu"
+              href="#menu"
               onClick={toggleMenu}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
@@ -90,12 +91,14 @@ export const MenuArea: FC<{
             <div
               className={mediaIconStyles({ state: isOpen ? "open" : "closed" })}
             >
-              {/* <RiInstagramLine
-                className={css({
-                  width: "2rem",
-                  height: "2rem",
-                })}
-              /> */}
+              <Link href="https://www.instagram.com/norihamaro">
+                <RiInstagramLine
+                  className={css({
+                    width: "2rem",
+                    height: "2rem",
+                  })}
+                />
+              </Link>
               <Link href="https://x.com/Norihamaro">
                 <RiTwitterXLine
                   className={css({
