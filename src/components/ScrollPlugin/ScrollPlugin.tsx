@@ -1,10 +1,10 @@
-// app/components/ScrollToHash.tsx (can be placed anywhere in your layout or page)
 "use client";
 
 import { useState, useEffect } from "react";
 import { Tags, isTag } from "../Section/Section";
 
 export const scrollToSection = (id: Tags) => {
+  if (window === undefined) return;
   const element = document.getElementById(id);
   if (element) {
     const offset = window.innerHeight * 0.05; // 5vh in pixels
@@ -17,11 +17,12 @@ export const scrollToSection = (id: Tags) => {
 };
 
 export const useHash = () => {
-  const [hash, setHash] = useState(window.location.hash);
+  const [hash, setHash] = useState<string>("");
   useEffect(() => {
     const onHashChange = () => {
       setHash(window.location.hash);
     };
+    setHash(window.location.hash);
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
