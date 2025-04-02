@@ -1,4 +1,4 @@
-import { Section } from "./Section";
+import { Section } from "../Section/Section";
 import Image from "next/image";
 import { css } from "@panda/css";
 import { RiErrorWarningFill } from "@remixicon/react";
@@ -6,19 +6,12 @@ import { RiErrorWarningFill } from "@remixicon/react";
 export const Access = () => {
   return (
     <Section id="access">
-      <Image
-        className={css({
-          width: "full",
-        })}
-        alt="Mapo Tofu Stand"
-        height={500}
-        width={500}
-        src="/access-map.png"
-      />
       <div
         className={css({
           width: "full",
-          padding: "0.5rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
         })}
       >
         <div
@@ -40,6 +33,17 @@ export const Access = () => {
           />
           <span>ビールを購入される方は年齢確認のリストバンドを。。。。。</span>
         </div>
+
+        <Image
+          className={css({
+            width: "full",
+            borderRadius: "2xl",
+          })}
+          alt="Mapo Tofu Stand"
+          height={500}
+          width={500}
+          src="/access-map.png"
+        />
       </div>
     </Section>
   );

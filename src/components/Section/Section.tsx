@@ -4,17 +4,38 @@ import { LeftDecoration } from "./decorations/left";
 import { RightDecoration } from "./decorations/right";
 import { RightBottomDecoration } from "./decorations/rightBottom";
 import { LeftBottomDecoration } from "./decorations/leftBottom";
+import { exhaustiveMatchingGuard } from "@/types/guard";
+
+export type Tags =
+  | "info"
+  | "greetings"
+  | "menu"
+  | "access"
+  | "about-us"
+  | "blog"
+  | "tips";
+
+export const isTag = (id: string): id is Tags => {
+  try {
+    const _ = id as Tags;
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
 
 type Props = {
-  id: "greetings" | "menu" | "access" | "about-us" | "blog" | "tips";
+  id: Tags;
   className?: string;
   children?: React.ReactNode;
 };
 
-const idToLabel = (
-  id: "greetings" | "menu" | "access" | "about-us" | "blog" | "tips",
-): string => {
+const idToLabel = (id: Tags): string => {
   switch (id) {
+    default:
+      return exhaustiveMatchingGuard(id);
+    case "info":
+      return "INFO";
     case "greetings":
       return "GREETINGS";
     case "menu":
@@ -37,7 +58,7 @@ export const Section: FC<Props> = ({ id, className, children }) => {
       id={id}
       className={css({
         width: "full",
-        padding: "0.5rem",
+        paddingX: "2rem",
       })}
     >
       <LeftDecoration />
@@ -83,6 +104,7 @@ export const Section: FC<Props> = ({ id, className, children }) => {
       <div
         className={css({
           width: "full",
+          padding: "2rem",
           backgroundColor: "gray.100", // "beige",
           borderBottomRadius: "lg",
         })}

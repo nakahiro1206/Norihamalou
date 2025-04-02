@@ -5,7 +5,10 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ["./src/components/**/*.{ts,tsx,js,jsx}", "./src/app/**/*.{ts,tsx,js,jsx}"],
+  include: [
+    "./src/components/**/*.{ts,tsx,js,jsx}",
+    "./src/app/**/*.{ts,tsx,js,jsx}",
+  ],
 
   // Files to exclude
   exclude: [],
@@ -18,8 +21,8 @@ export default defineConfig({
       },
       tokens: {
         colors: {
-          beige: { value: "rgba(246,230,208,255)" }, // norihamalou-unique beige color
-          primary: { value: "rgba(208,33,26,255)" }, // norihama-lou unique color
+          beige: { value: "rgba(241,235,215,255)" }, // norihamalou-unique beige color
+          primary: { value: "rgba(204,0,18,255)" }, // norihama-lou unique color
           secondary: { value: "#0070f3" },
           accent: { value: "#0070f3" },
           neutral: { value: "#0070f3" },
@@ -28,6 +31,10 @@ export default defineConfig({
           success: { value: "#0070f3" },
           warning: { value: "#0070f3" },
           error: { value: "#0070f3" },
+        },
+        fonts: {
+          zenOldMincho: { value: "var(--fonts-zen-old-mincho), sans-serif" },
+          hinaMincho: { value: "var(--fonts-hina-mincho), sans-serif" },
         },
       },
       animationStyles: {
@@ -52,6 +59,22 @@ export default defineConfig({
           },
           "100%": {
             transform: "rotate(-3deg)",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        fadeOut: {
+          "0%": {
+            opacity: "1",
+          },
+          "100%": {
+            opacity: "0",
           },
         },
         expandDown: {

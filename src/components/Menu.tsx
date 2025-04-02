@@ -1,4 +1,4 @@
-import { Section } from "./Section";
+import { Section } from "./Section/Section";
 import { RiBeerFill, RiBowlFill } from "@remixicon/react";
 import { css } from "@panda/css";
 

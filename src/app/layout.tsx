@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Hina_Mincho } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Hina_Mincho,
+  Zen_Old_Mincho,
+} from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import { MenuProvider } from "@/app/provider";
@@ -17,9 +22,15 @@ const geistMono = Geist_Mono({
 });
 
 const hinaMincho = Hina_Mincho({
-  variable: "--font-hina-mincho",
+  variable: "--fonts-hina-mincho",
   subsets: ["latin"],
   weight: ["400"],
+});
+
+const zenOldMincho = Zen_Old_Mincho({
+  variable: "--fonts-zen-old-mincho",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -33,17 +44,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={css({
+        scrollBehavior: "smooth",
+      })}
+    >
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        className={hinaMincho.className}
+        className={`${hinaMincho.variable} ${zenOldMincho.variable}`}
       >
-        <MenuProvider>
-          <FreezeWhileMenuOpen>
-            <Header />
-            {children}
-          </FreezeWhileMenuOpen>
-        </MenuProvider>
+        <main
+          className={css({
+            fontFamily: "zenOldMincho", // base font in this website.
+          })}
+        >
+          <MenuProvider>
+            <FreezeWhileMenuOpen>
+              <Header />
+              <div
+                className={css({
+                  minHeight: "95lvh",
+                })}
+              >
+                {children}
+              </div>
+            </FreezeWhileMenuOpen>
+          </MenuProvider>
+        </main>
       </body>
     </html>
   );

@@ -15,7 +15,7 @@ export const FreezeWhileMenuOpen: FC<Props> = ({ children }) => {
       className={css({
         height: "full",
         width: "full",
-        position: isOpen ? "fixed" : "relative",
+        // position: isOpen ? "fixed" : "relative",
         overflow: isOpen ? "hidden" : "scroll",
       })}
     >

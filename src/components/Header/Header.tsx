@@ -95,6 +95,7 @@ export const Header: FC = () => {
           width: "full",
           height: "5lvh",
           position: "fixed",
+          zIndex: 49,
           top: 0,
           backgroundColor: "primary",
           // backgroundGradient: "to-r",
@@ -110,13 +111,14 @@ export const Header: FC = () => {
             justifyContent: "space-between",
             gap: "2",
             alignItems: "center",
-            paddingX: "2",
+            paddingX: "1rem",
           })}
         >
           <p
             className={css({
               color: "beige",
               fontSize: "3xl",
+              fontFamily: "hinaMincho",
             })}
           >
             <Link
