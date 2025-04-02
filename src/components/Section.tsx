@@ -1,5 +1,9 @@
 import { css } from "@panda/css";
 import { FC } from "react";
+import { LeftDecoration } from "./decorations/left";
+import { RightDecoration } from "./decorations/right";
+import { RightBottomDecoration } from "./decorations/rightBottom";
+import { LeftBottomDecoration } from "./decorations/leftBottom";
 
 type Props = {
   id: "greetings" | "menu" | "access" | "about-us" | "blog" | "tips";
@@ -36,9 +40,14 @@ export const Section: FC<Props> = ({ id, className, children }) => {
         padding: "0.5rem",
       })}
     >
+      <LeftDecoration />
+      <LeftBottomDecoration />
+      <RightDecoration />
+      <RightBottomDecoration />
       <div
         className={css({
           width: "full",
+          height: "4rem",
           padding: "0.5rem",
           backgroundColor: "primary",
           borderTopRadius: "lg",
@@ -47,11 +56,10 @@ export const Section: FC<Props> = ({ id, className, children }) => {
         <div
           className={css({
             width: "full",
-
-            borderY: "solid",
+            // borderY: "solid",
             borderX: "none",
             borderColor: "white",
-            borderWidth: "2px",
+            // borderWidth: "2px",
             paddingY: "0.25rem",
           })}
         >
@@ -62,9 +70,9 @@ export const Section: FC<Props> = ({ id, className, children }) => {
               fontSize: "2xl",
               color: "beige",
               textAlign: "center",
-              borderY: "solid",
-              borderX: "none",
-              borderWidth: "1px",
+              // borderY: "solid",
+              // borderX: "none",
+              // borderWidth: "1px",
             })}
           >
             {label}
