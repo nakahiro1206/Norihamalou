@@ -1,37 +1,36 @@
-import React from "react";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
-import { getWaitTimes } from "@/service";
-import { WaitTimesResponse } from "@/service/type";
+// components/WaitTimes.tsx
+'use client'
 
-const queryClient = new QueryClient();
+import { useEffect, useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
+const isLocal = process.env.NEXT_PUBLIC_NODE_ENV === 'local';
+
+const supabase = createClient(
+  isLocal ? process.env.NEXT_PUBLIC_SUPABASE_URL_LOCAL! : process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  isLocal ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY_LOCAL! : process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 export const WaitingTimes = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Example />
-    </QueryClientProvider>
-  );
-};
+  const [wait, setWait] = useState<number | null>(null)
 
-function Example() {
-  const { isPending, error, data, isFetching } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: async (): Promise<WaitTimesResponse> => {
-      return await getWaitTimes({});
-    },
-  });
+  useEffect(() => {
+    const fetchWait = async () => {
+      const { data, error } = await supabase
+        .from('stalls_status')
+        .select('wait_minutes')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single()
 
-  if (isPending) return "Loading...";
+      if (error) {
+        console.error('Error fetching wait time:', error.message)
+      } else {
+        setWait(data?.wait_minutes ?? null)
+      }
+    }
 
-  if (error) return "An error has occurred: " + error.message;
+    fetchWait()
+  }, [])
 
-  return (
-    <div>
-      <div>{isFetching ? "Updating..." : data?.waitTimes}</div>
-    </div>
-  );
+  return <span>{wait !== null ? `${wait} min` : 'Loading...'}</span>
 }
