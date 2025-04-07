@@ -104,7 +104,7 @@ export const Section: FC<Props> = ({ id, className, children }) => {
       <div
         className={css({
           width: "full",
-          padding: "2rem",
+          padding: "1rem", // "2rem",
           backgroundColor: "gray.100", // "beige",
           borderBottomRadius: "lg",
         })}
