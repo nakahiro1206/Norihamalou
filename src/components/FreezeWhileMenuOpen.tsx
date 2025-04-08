@@ -1,7 +1,6 @@
 "use client";
 import React, { FC } from "react";
 import { useMenuContext } from "@/app/provider";
-// import { cn } from "@/lib/utils";
 import { css } from "@panda/css";
 
 type Props = {

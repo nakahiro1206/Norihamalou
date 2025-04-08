@@ -26,12 +26,19 @@ export const Access = () => {
         >
           <RiErrorWarningFill
             className={css({
-              marginRight: "0.5rem",
+              height: "1.5rem",
+              width: "1.5rem",
+              flexShrink: 0,
+              marginRight: "0.25rem",
               color: "red.500",
               display: "inline",
             })}
           />
-          <span>ビールを購入される方は年齢確認のリストバンドを。。。。。</span>
+          <span>
+            {
+              "ビールを購入される方は年齢確認のリストバンドを事前に発行してからお越しください🙇"
+            }
+          </span>
         </div>
 
         <Image

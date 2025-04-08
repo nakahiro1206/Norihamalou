@@ -1,17 +1,17 @@
 "use client";
 import { FC, useEffect } from "react";
-import Image from "next/image";
 import { css } from "@panda/css";
-import { FoodDrinkMenu } from "./Menu";
+import { FoodDrinkMenu } from "./Menu/Menu";
 import { Access } from "./Access/Access";
-import { isTag, Section } from "./Section/Section";
-import { WaitingTimes } from "./WaitTimes";
 import { Overlay } from "./Overlay/Overlay";
 import { Greetings } from "./Greetings/Greetings";
 import { FloatingButton } from "./FloatingButton/FloatingButton";
 import { Info } from "./Info/Info";
 import { Devider } from "./Devider/Devider";
 import { InitScrollPlugin } from "./ScrollPlugin/ScrollPlugin";
+import { Tips } from "./Tips/Tips";
+import { AboutUs } from "./AboutUs/AboutUs";
+import { Blog } from "./Blog/Blog";
 
 export const Main: FC = () => {
   return (
@@ -21,26 +21,6 @@ export const Main: FC = () => {
         backgroundColor: "primary",
       })}
     >
-      {/* <div
-        className={css({
-          width: "full",
-          bgGradient: "to-b",
-          gradientFrom: "primary",
-          gradientVia: "primary",
-          gradientTo: "white",
-          color: "beige",
-          height: "10lvh",
-          textAlign: "center",
-          fontWeight: "bold",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-        })}
-      >
-        <p>{"SITE: 工学部広場B"}</p>
-        <p>COMING BACK ON MAY 24-25th, 2025!</p>
-      </div> */}
-
       <div
         className={css({
           width: "full",
@@ -59,6 +39,12 @@ export const Main: FC = () => {
         <FoodDrinkMenu />
         <Devider />
         <Access />
+        <Devider />
+        <AboutUs />
+        <Devider />
+        <Blog />
+        <Devider />
+        <Tips />
       </div>
       <FloatingButton />
       <Overlay />
