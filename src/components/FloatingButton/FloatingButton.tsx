@@ -1,12 +1,13 @@
 import { css } from "@panda/css";
-import { WaitingTimes } from "../WaitTimes";
+import { Section } from "../Section/Section";
+import { RiExternalLinkLine } from "@remixicon/react";
 
 export const FloatingButton = () => {
   return (
     <div
       className={css({
         width: "10lvh",
-        height: "calc(15lvh+0.5rem)",
+        height: "10vlh",
         position: "fixed",
         bottom: "5%",
         right: "5%",
@@ -21,26 +22,16 @@ export const FloatingButton = () => {
         className={css({
           width: "full",
           height: "10lvh",
+          backgroundColor: "rgba(255, 255, 255, 0.7)",
+          rounded: "xl",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          rounded: "full",
-          marginBottom: "0.5rem",
         })}
       >
-        Anticipated Waiting Time
-        <WaitingTimes />
-      </div>
-      <div
-        className={css({
-          width: "full",
-          height: "5lvh",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          rounded: "xl",
-        })}
-      >
-        Vote from Here!
+        <p>Vote from Here!</p>
+        <RiExternalLinkLine />
+        {/* <Section id="about-us"></Section> */}
       </div>
     </div>
   );

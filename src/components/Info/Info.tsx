@@ -1,7 +1,45 @@
+import React, { FC } from "react";
 import { Section } from "../Section/Section";
 import { css } from "@panda/css";
 import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
 import { WaitingTimes } from "../WaitTimes";
+import { RiLinksLine } from "@remixicon/react";
+
+type SubSectionProps = {
+  title: string;
+  children: React.ReactNode;
+};
+const SubSection: FC<SubSectionProps> = ({ title, children }) => {
+  return (
+    <div
+      className={css({
+        width: "full",
+        textAlign: "left",
+      })}
+    >
+      <div
+        className={css({
+          width: "full",
+          paddingX: "2rem",
+        })}
+      >
+        <p
+          className={css({
+            fontWeight: "extrabold",
+            fontSize: "lg",
+            color: "primary",
+            borderBottom: "solid 1px",
+            borderColor: "primary",
+            textAlign: "center",
+          })}
+        >
+          {title}
+        </p>
+      </div>
+      {children}
+    </div>
+  );
+};
 
 export const Info = () => {
   return (
@@ -12,21 +50,49 @@ export const Info = () => {
       都内の麻婆豆腐を100軒以上食べめぐった東大生が、本気で届ける究極の麻婆豆腐。
       今年も試作を重ね、去年より進化させます🔥`}
       </p>
-      <div>{"開催日程: 第98回五月祭 2025/5/24(Sat.) ~ 2025/5/25(Sun.)"}</div>
-      <button onClick={() => scrollToSection("greetings")}>
-        {"開催場所: 東京大学本郷キャンパス工学部広場 B3, 4"}
-        {" << TODO: add external link icon"}
-      </button>
-      <div
-        className={css({
-          display: "flex",
-          width: "full",
-        })}
-      >
-        {"推定待ち時間: "}
+
+      <SubSection title={"開催日程"}>
+        <div
+          className={css({
+            width: "full",
+            display: "flex",
+            textAlign: "left",
+          })}
+        >
+          {"第98回五月祭 2025/5/24(Sat.) ~ 2025/5/25(Sun.)"}
+        </div>
+      </SubSection>
+
+      <SubSection title={"開催場所"}>
+        <div
+          className={css({
+            width: "full",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "start",
+          })}
+        >
+          <button
+            className={css({
+              textAlign: "center",
+            })}
+            onClick={() => scrollToSection("access")}
+          >
+            {"東京大学本郷キャンパス工学部広場 B3, 4"}
+          </button>
+          <RiLinksLine
+            className={css({
+              display: "inline",
+              height: "1rem",
+              width: "1rem",
+            })}
+          />
+        </div>
+      </SubSection>
+
+      <SubSection title={"推定待ち時間"}>
         <WaitingTimes />
-        {"分"}
-      </div>
+      </SubSection>
     </Section>
   );
 };

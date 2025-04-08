@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
+import { css } from "@panda/css";
 
 const isLocal = process.env.NEXT_PUBLIC_NODE_ENV === "local";
 
@@ -35,5 +36,14 @@ export const WaitingTimes = () => {
     fetchWait();
   }, []);
 
-  return <span>{wait !== null ? `${wait} min` : "Loading..."}</span>;
+  return (
+    <span
+      className={css({
+        width: "full",
+        textAlign: "center",
+      })}
+    >
+      {wait !== null ? `${wait} 分` : "Loading..."}
+    </span>
+  );
 };

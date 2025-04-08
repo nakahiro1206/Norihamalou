@@ -9,6 +9,7 @@ import {
 } from "./MenuArea.recipe";
 import { css } from "@panda/css";
 import { RiInstagramLine, RiTwitterXLine } from "@remixicon/react";
+import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
 
 export const MenuArea: FC<{
   isOpen: boolean | null;
@@ -27,65 +28,79 @@ export const MenuArea: FC<{
       return (
         <div className={menuWrapperClass}>
           <div className={menuItemFrameStyles({ order: "1st" })}>
-            <Link
-              // href="/menu"
-              href="#menu"
-              onClick={toggleMenu}
+            <button
+              // href="#menu"
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("menu");
+              }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
                 order: "1st",
               })}
             >
               FOOD / DRINK
-            </Link>
+            </button>
           </div>
           <div className={menuItemFrameStyles({})}>
-            <Link
-              href="/access"
-              onClick={toggleMenu}
+            <button
+              // href="#access"
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("access");
+              }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
                 order: "2nd",
               })}
             >
               ACCESS
-            </Link>
+            </button>
           </div>
           <div className={menuItemFrameStyles({})}>
-            <Link
-              href="/about-us"
-              onClick={toggleMenu}
+            <button
+              // href="#about-us"
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("about-us");
+              }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
                 order: "3rd",
               })}
             >
               ABOUT US
-            </Link>
+            </button>
           </div>
           <div className={menuItemFrameStyles({})}>
-            <Link
-              href="/blog"
-              onClick={toggleMenu}
+            <button
+              // href="#blog"
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("blog");
+              }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
                 order: "4th",
               })}
             >
               BLOG
-            </Link>
+            </button>
           </div>
           <div className={menuItemFrameStyles({})}>
-            <Link
-              href="/tips"
-              onClick={toggleMenu}
+            <button
+              // href="#tips"
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("tips");
+              }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
                 order: "5th",
               })}
             >
               TIPS
-            </Link>
+            </button>
           </div>
           <div className={menuItemFrameStyles({})}>
             <div

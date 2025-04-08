@@ -81,6 +81,7 @@ export const mediaIconStyles = cva({
 export const menuItemStyles = cva({
   base: {
     display: "flex",
+    width: "full",
     height: "full",
     alignItems: "center",
     justifyContent: "center",

@@ -71,7 +71,6 @@ export const Section: FC<Props> = ({ id, className, children }) => {
           height: "4rem",
           padding: "0.5rem",
           backgroundColor: "primary",
-          borderTopRadius: "lg",
         })}
       >
         <div

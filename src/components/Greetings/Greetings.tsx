@@ -20,6 +20,7 @@ export const Greetings = () => {
             alignItems: "center",
             rounded: "lg",
             gap: "1rem",
+            position: "relative",
           })}
         >
           <Image
@@ -30,20 +31,24 @@ export const Greetings = () => {
             className={css({
               objectFit: "contain",
               objectPosition: "center",
-              width: "55%",
+              width: "full",
               rounded: "lg",
             })}
           />
           <div
             className={css({
-              color: "black",
-              height: "full",
-              backgroundColor: "white",
-              padding: "1rem",
+              position: "absolute",
               rounded: "lg",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              padding: "1rem",
               display: "flex",
               flexDirection: "column",
               gap: "0.5rem",
+              fontWeight: "bold",
             })}
           >
             <div
@@ -63,32 +68,6 @@ export const Greetings = () => {
           </div>
         </div>
       </div>
-      {/* <div
-      className={css({
-        width: "full",
-        rounded: "lg",
-        padding: "0.5rem",
-      })}
-    >
-      <div
-        className={css({
-          backgroundColor: "beige",
-          rounded: "lg",
-        })}
-      >
-        <p>{"お待ちしております的な一言？"}</p>
-        <Image
-          className={css({
-            width: "full",
-            roundedBottom: "lg",
-          })}
-          alt="Mapo Tofu Stand"
-          height={500}
-          width={500}
-          src="/mapo-stand.jpg"
-        />
-      </div>
-    </div> */}
     </Section>
   );
 };

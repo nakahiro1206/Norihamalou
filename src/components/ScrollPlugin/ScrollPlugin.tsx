@@ -21,6 +21,7 @@ export const useHash = () => {
   useEffect(() => {
     const onHashChange = () => {
       setHash(window.location.hash);
+      console.log(hash); // seems it does not work well.
     };
     setHash(window.location.hash);
     window.addEventListener("hashchange", onHashChange);
