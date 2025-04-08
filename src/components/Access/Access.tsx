@@ -41,16 +41,25 @@ export const Access = () => {
           </span>
         </div>
 
-        <Image
+        <div
           className={css({
             width: "full",
-            borderRadius: "2xl",
+            padding: "1rem",
+            backgroundColor: "white",
+            rounded: "2xl",
           })}
-          alt="Mapo Tofu Stand"
-          height={500}
-          width={500}
-          src="/access-map.png"
-        />
+        >
+          <Image
+            className={css({
+              width: "full",
+              borderRadius: "2xl",
+            })}
+            alt="Mapo Tofu Stand"
+            height={500}
+            width={500}
+            src="/access-map.png"
+          />
+        </div>
       </div>
     </Section>
   );
