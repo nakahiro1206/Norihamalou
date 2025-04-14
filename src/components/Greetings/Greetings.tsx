@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 export const Greetings = () => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.5,
+    threshold: 0.1,
   });
 
   return (

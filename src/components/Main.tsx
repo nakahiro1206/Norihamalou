@@ -12,6 +12,7 @@ import { InitScrollPlugin } from "./ScrollPlugin/ScrollPlugin";
 import { Tips } from "./Tips/Tips";
 import { AboutUs } from "./AboutUs/AboutUs";
 import { Blog } from "./Blog/Blog";
+import { Hero } from "./Hero/Hero";
 
 export const Main: FC = () => {
   return (
@@ -29,9 +30,10 @@ export const Main: FC = () => {
           flexDirection: "column",
           alignItems: "center",
           gap: "2rem",
-          paddingTop: "2rem",
         })}
       >
+        <Hero />
+        <Devider />
         <Info />
         <Devider />
         <Greetings />
@@ -45,8 +47,9 @@ export const Main: FC = () => {
         <Blog />
         <Devider />
         <Tips />
+        <Devider />
       </div>
-      <FloatingButton />
+      {/* <FloatingButton /> */}
       <Overlay />
       <InitScrollPlugin />
     </div>

@@ -3,7 +3,8 @@ import { Section } from "../Section/Section";
 import { css } from "@panda/css";
 import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
 import { WaitingTimes } from "../WaitTimes";
-import { RiLinksLine } from "@remixicon/react";
+import { RiLinksLine, RiExternalLinkLine } from "@remixicon/react";
+import Link from "next/link";
 
 type SubSectionProps = {
   title: string;
@@ -21,6 +22,7 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
         className={css({
           width: "full",
           paddingX: "2rem",
+          paddingBottom: "0.25rem",
         })}
       >
         <p
@@ -31,6 +33,7 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
             borderBottom: "solid 1px",
             borderColor: "primary",
             textAlign: "center",
+            paddingBottom: "0.25rem",
           })}
         >
           {title}
@@ -44,55 +47,122 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 export const Info = () => {
   return (
     <Section id="info">
-      <p>
-        {`昨年の五月祭で 1000 食超を提供し大きな反響を呼んだ “本格麻婆豆腐 乘濵楼” が今年の五月祭に帰ってきます！！
+      <div
+        className={css({
+          width: "full",
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+        })}
+      >
+        <p>
+          {"昨年の五月祭で 1000 食超を提供し大きな反響を呼んだ"}
+          <span
+            className={css({
+              fontWeight: "900",
+            })}
+          >
+            {"「本格麻婆豆腐 乘濵楼」"}
+          </span>
+          {"が今年の五月祭に帰ってきます！！"}
+          <br />
+          {
+            "都内の麻婆豆腐を100軒以上食べめぐった東大生が、本気で届ける究極の麻婆豆腐。今年も試作を重ね、去年より進化させます🔥"
+          }
+        </p>
 
-      都内の麻婆豆腐を100軒以上食べめぐった東大生が、本気で届ける究極の麻婆豆腐。
-      今年も試作を重ね、去年より進化させます🔥`}
-      </p>
+        <SubSection title={"開催日程"}>
+          <div
+            className={css({
+              width: "full",
+              textAlign: "center",
+            })}
+          >
+            {"第98回五月祭"}
+            <br />
+            {"2025/5/24(Sat.) ~ 2025/5/25(Sun.)"}
+          </div>
+        </SubSection>
 
-      <SubSection title={"開催日程"}>
-        <div
-          className={css({
-            width: "full",
-            display: "flex",
-            textAlign: "left",
-          })}
-        >
-          {"第98回五月祭 2025/5/24(Sat.) ~ 2025/5/25(Sun.)"}
-        </div>
-      </SubSection>
-
-      <SubSection title={"開催場所"}>
-        <div
-          className={css({
-            width: "full",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "start",
-          })}
-        >
+        <SubSection title={"開催場所"}>
           <button
             className={css({
               textAlign: "center",
+              width: "full",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             })}
             onClick={() => scrollToSection("access")}
           >
-            {"東京大学本郷キャンパス工学部広場 B3, 4"}
+            <p
+              className={css({
+                textDecoration: "underline",
+                color: "sky.700",
+              })}
+            >
+              {"東京大学本郷キャンパス"}
+              <br />
+              {"工学部広場 B3, 4"}
+            </p>
+            <RiLinksLine
+              className={css({
+                display: "inline",
+                height: "1rem",
+                width: "1rem",
+                marginLeft: "0.5rem",
+                color: "sky.700",
+              })}
+            />
           </button>
-          <RiLinksLine
-            className={css({
-              display: "inline",
-              height: "1rem",
-              width: "1rem",
-            })}
-          />
-        </div>
-      </SubSection>
+        </SubSection>
 
-      <SubSection title={"推定待ち時間"}>
-        <WaitingTimes />
-      </SubSection>
+        <SubSection title={"推定待ち時間"}>
+          <div
+            className={css({
+              width: "full",
+              textAlign: "center",
+            })}
+          >
+            <WaitingTimes />
+          </div>
+        </SubSection>
+
+        <SubSection title={"投票フォーム"}>
+          <Link href="/">
+            {/* should change the link to vote form! */}
+            <div
+              className={css({
+                width: "full",
+                textAlign: "center",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              })}
+            >
+              <p
+                className={css({
+                  textDecoration: "underline",
+                  color: "sky.700",
+                })}
+              >
+                {"投票フォームのご回答に"}
+                <br />
+                {"ご協力ください！"}
+              </p>
+              <RiExternalLinkLine
+                className={css({
+                  display: "inline",
+                  height: "1rem",
+                  width: "1rem",
+                  marginLeft: "0.5rem",
+                  color: "sky.700",
+                })}
+              />
+            </div>
+          </Link>
+        </SubSection>
+      </div>
     </Section>
   );
 };

@@ -29,17 +29,44 @@ export const MenuArea: FC<{
         <div className={menuWrapperClass}>
           <div className={menuItemFrameStyles({ order: "1st" })}>
             <button
-              // href="#menu"
               onClick={() => {
                 toggleMenu();
-                scrollToSection("menu");
+                scrollToSection("info");
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
                 order: "1st",
               })}
             >
-              FOOD / DRINK
+              INFO
+            </button>
+          </div>
+          <div className={menuItemFrameStyles({})}>
+            <button
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("greetings");
+              }}
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "2nd",
+              })}
+            >
+              GREETINGS
+            </button>
+          </div>
+          <div className={menuItemFrameStyles({})}>
+            <button
+              onClick={() => {
+                toggleMenu();
+                scrollToSection("menu");
+              }}
+              className={menuItemStyles({
+                state: isOpen ? "open" : "closed",
+                order: "3rd",
+              })}
+            >
+              FOOD & DRINK
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>
@@ -51,7 +78,7 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "2nd",
+                order: "4th",
               })}
             >
               ACCESS
@@ -66,7 +93,7 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "3rd",
+                order: "5th",
               })}
             >
               ABOUT US
@@ -81,7 +108,7 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "4th",
+                order: "6th",
               })}
             >
               BLOG
@@ -96,7 +123,7 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "5th",
+                order: "7th",
               })}
             >
               TIPS

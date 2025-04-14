@@ -39,7 +39,7 @@ const idToLabel = (id: Tags): string => {
     case "greetings":
       return "GREETINGS";
     case "menu":
-      return "FOOD / DRINK";
+      return "FOOD & DRINK";
     case "access":
       return "ACCESS";
     case "about-us":

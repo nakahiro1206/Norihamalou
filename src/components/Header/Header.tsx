@@ -35,13 +35,6 @@ const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
           onClick={toggleMenu}
         >
           <span>MENU</span>
-          {/* <MenuIcon
-            loop={true}
-            className={css({
-              width: "1.5rem",
-              height: "1.5rem",
-            })}
-          /> */}
           <RiMenuSearchLine
             className={css({
               width: "1.5rem",
@@ -68,13 +61,6 @@ const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
               height: "1.5rem",
             })}
           />
-          {/* <CloseIcon
-            loop={0}
-            className={css({
-              width: "1.5rem",
-              height: "1.5rem",
-            })}
-          /> */}
         </button>
       );
   }
@@ -98,10 +84,6 @@ export const Header: FC = () => {
           zIndex: 49,
           top: 0,
           backgroundColor: "primary",
-          // backgroundGradient: "to-r",
-          // gradientTo: "white",
-          // gradientVia: "primary",
-          // gradientFrom: "primary",
         })}
       >
         <div

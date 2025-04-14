@@ -111,6 +111,8 @@ export const menuItemStyles = cva({
       "3rd": {},
       "4th": {},
       "5th": {},
+      "6th": {},
+      "7th": {},
     },
   },
   compoundVariants: [
@@ -139,31 +141,51 @@ export const menuItemStyles = cva({
       order: "5th",
       css: { animationDuration: "0.5s", animationDelay: "0.2s" },
     },
+    {
+      state: "open",
+      order: "6th",
+      css: { animationDuration: "0.6s", animationDelay: "0.25s" },
+    },
+    {
+      state: "open",
+      order: "7th",
+      css: { animationDuration: "0.7s", animationDelay: "0.3s" },
+    },
 
     {
       state: "closed",
       order: "1st",
-      css: { animationDuration: "0.1s", animationDelay: "0.25s" },
+      css: { animationDuration: "0.1s", animationDelay: "0.3s" },
     },
     {
       state: "closed",
       order: "2nd",
-      css: { animationDuration: "0.2s", animationDelay: "0.2s" },
+      css: { animationDuration: "0.2s", animationDelay: "0.25s" },
     },
     {
       state: "closed",
       order: "3rd",
-      css: { animationDuration: "0.3s", animationDelay: "0.15s" },
+      css: { animationDuration: "0.3s", animationDelay: "0.2s" },
     },
     {
       state: "closed",
       order: "4th",
-      css: { animationDuration: "0.4s", animationDelay: "0.1s" },
+      css: { animationDuration: "0.4s", animationDelay: "0.15s" },
     },
     {
       state: "closed",
       order: "5th",
-      css: { animationDuration: "0.5s", animationDelay: "0.05s" },
+      css: { animationDuration: "0.5s", animationDelay: "0.1s" },
+    },
+    {
+      state: "closed",
+      order: "6th",
+      css: { animationDuration: "0.6s", animationDelay: "0.05s" },
+    },
+    {
+      state: "closed",
+      order: "7th",
+      css: { animationDuration: "0.7s", animationDelay: "0s" },
     },
   ],
 

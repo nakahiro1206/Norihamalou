@@ -1,9 +1,15 @@
+"use client";
+import { useState } from "react";
 import { Section } from "../Section/Section";
 import Image from "next/image";
 import { css } from "@panda/css";
 import { RiErrorWarningFill } from "@remixicon/react";
+import { Preview } from "./Preview";
 
 export const Access = () => {
+  const [showPreview, setShowPreview] = useState(false);
+  const toggle = () => setShowPreview((prev) => !prev);
+
   return (
     <Section id="access">
       <div
@@ -58,9 +64,12 @@ export const Access = () => {
             height={500}
             width={500}
             src="/access-map.png"
+            onClick={toggle}
           />
         </div>
+        {"画像をタップすると拡大表示できます👀"}
       </div>
+      <Preview show={showPreview} toggle={toggle} />
     </Section>
   );
 };
