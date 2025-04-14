@@ -37,7 +37,7 @@ export const menuWrapperStyles = cva({
       },
       closed: {
         animationName: "collapseUp",
-        animationDuration: "0.5s",
+        animationDuration: "0.7s",
         animationTimingFunction: "ease-in-out",
         animationFillMode: "forwards",
       },
@@ -59,14 +59,14 @@ export const mediaIconStyles = cva({
     state: {
       open: {
         animationName: "moveIn",
-        animationDuration: "0.6s",
-        animationDelay: "0.25s",
+        animationDuration: "0.7s",
+        animationDelay: "0.3s",
         animationTimingFunction: "ease-in-out",
         animationFillMode: "forwards",
       },
       closed: {
         animationName: "moveOut",
-        animationDuration: "0.6s",
+        animationDuration: "0.7s",
         animationDelay: "0s",
         animationTimingFunction: "ease-in-out",
         animationFillMode: "forwards",
