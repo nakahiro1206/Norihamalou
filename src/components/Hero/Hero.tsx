@@ -7,7 +7,7 @@ export const Hero = () => {
     <div
       className={css({
         width: "full",
-        height: "95lvh",
+        minHeight: "95lvh",
         display: "flex",
         flexDirection: "column",
         gap: "2rem",
