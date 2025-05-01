@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Section } from "../Section/Section";
 import { css } from "@panda/css";
 import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
-import { WaitingTimes } from "../WaitTimes";
+import { useWaitingTime } from "@/services/waitingTime";
 import { RiLinksLine, RiExternalLinkLine } from "@remixicon/react";
 import Link from "next/link";
 
@@ -45,6 +45,7 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
 };
 
 export const Info = () => {
+  const { data: wait } = useWaitingTime();
   return (
     <Section id="info">
       <div
@@ -124,7 +125,8 @@ export const Info = () => {
               textAlign: "center",
             })}
           >
-            <WaitingTimes />
+            {`推定待ち時間: ${wait}`}
+            {"分"}
           </div>
         </SubSection>
 

@@ -1,38 +1,46 @@
+import ShinyText from "@/blocks/TextAnimations/ShinyText/ShinyText";
 import { css } from "@panda/css";
-import { Section } from "../Section/Section";
-import { RiExternalLinkLine } from "@remixicon/react";
+import { WaitingTimes } from "./internal/WaitTimes";
 
 export const FloatingButton = () => {
   return (
     <div
       className={css({
-        width: "10lvh",
-        height: "10vlh",
+        width: "full",
+        height: "calc(15lvh+0.5rem)",
         position: "fixed",
-        bottom: "5%",
-        right: "5%",
+        bottom: "0.5rem",
 
         rounded: "full",
-        textAlign: "center",
-        alignItems: "center",
+        display: "flex",
+        gap: "1rem",
+        alignItems: "flex-end",
         justifyContent: "center",
       })}
     >
-      <div
+      <button
+        type="button"
         className={css({
-          width: "full",
-          height: "10lvh",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          rounded: "xl",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          flex: 1,
+          background:
+            "radial-gradient(circle at center, rgba(204,0,18,255), #f7471b)",
+          padding: "1rem",
+          rounded: "5rem",
+          marginLeft: "6rem",
         })}
       >
-        <p>Vote from Here!</p>
-        <RiExternalLinkLine />
-        {/* <Section id="about-us"></Section> */}
-      </div>
+        <ShinyText
+          text="投票ボタン"
+          speed={1.5}
+          className={css({
+            fontWeight: "bold",
+            color: "#cccccc",
+            lineHeight: "1.25",
+            fontSize: "1.25rem",
+          })}
+        />
+      </button>
+      <WaitingTimes />
     </div>
   );
 };

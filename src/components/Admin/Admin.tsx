@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { css } from "@panda/css";
 import { updateStatus } from "@/clients/supabase";
 import { postTweet, generateAuthUrl } from "@/clients/twitter";
@@ -11,6 +11,7 @@ export const Admin = () => {
   const [soldOut, setSoldOut] = useState(false);
   const [message, setMessage] = useState("");
   const [result, setResult] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -28,10 +29,18 @@ export const Admin = () => {
     });
 
     if (error === null) {
-      const url = await generateAuthUrl();
-      console.log(url);
+      // const url = await generateAuthUrl();
+      // console.log(url);
+      //
+      // under development....
+      // const code = inputRef.current?.value;
+      // if (!code) {
+      //   setResult("コードがありません");
+      //   return;
+      // }
       // const res = await postTweet(
       //   `[Test api call] 現在の推定待ち時間は${message}分です🐼`,
+      //   code,
       // );
       // switch (res.name) {
       //   case "PostTweetResponse":
@@ -48,6 +57,11 @@ export const Admin = () => {
     setResult(error ? `エラー: ${error.message}` : "保存しました！");
   };
 
+  const gen = async () => {
+    const url = await generateAuthUrl();
+    console.log(url);
+  };
+
   return (
     <div
       className={css({
@@ -55,6 +69,8 @@ export const Admin = () => {
         padding: "2rem",
       })}
     >
+      <input type="text" ref={inputRef} />
+      <button onClick={gen}>ABC</button>
       <form onSubmit={handleSubmit}>
         <div
           className={css({

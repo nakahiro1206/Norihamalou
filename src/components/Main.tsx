@@ -1,8 +1,18 @@
 "use client";
+<<<<<<< HEAD
 import { FC, useEffect } from "react";
+=======
+import { type FC, useEffect } from "react";
+import Image from "next/image";
+>>>>>>> origin/add-jsrepo
 import { css } from "@panda/css";
 import { FoodDrinkMenu } from "./Menu/Menu";
 import { Access } from "./Access/Access";
+<<<<<<< HEAD
+=======
+import { isTag, Section } from "./Section/Section";
+import { WaitingTimes } from "./FloatingButton/internal/WaitTimes";
+>>>>>>> origin/add-jsrepo
 import { Overlay } from "./Overlay/Overlay";
 import { Greetings } from "./Greetings/Greetings";
 import { FloatingButton } from "./FloatingButton/FloatingButton";
