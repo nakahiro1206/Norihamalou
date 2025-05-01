@@ -1,47 +1,46 @@
+import ShinyText from "@/blocks/TextAnimations/ShinyText/ShinyText";
 import { css } from "@panda/css";
-import { WaitingTimes } from "../WaitTimes";
+import { WaitingTimes } from "./internal/WaitTimes";
 
 export const FloatingButton = () => {
-  return (
-    <div
-      className={css({
-        width: "10lvh",
-        height: "calc(15lvh+0.5rem)",
-        position: "fixed",
-        bottom: "5%",
-        right: "5%",
+	return (
+		<div
+			className={css({
+				width: "full",
+				height: "calc(15lvh+0.5rem)",
+				position: "fixed",
+				bottom: "0.5rem",
 
-        rounded: "full",
-        textAlign: "center",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
-    >
-      <div
-        className={css({
-          width: "full",
-          height: "10lvh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          rounded: "full",
-          marginBottom: "0.5rem",
-        })}
-      >
-        Anticipated Waiting Time
-        <WaitingTimes />
-      </div>
-      <div
-        className={css({
-          width: "full",
-          height: "5lvh",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          rounded: "xl",
-        })}
-      >
-        Vote from Here!
-      </div>
-    </div>
-  );
+				rounded: "full",
+				display: "flex",
+				gap: "1rem",
+				alignItems: "flex-end",
+				justifyContent: "center",
+			})}
+		>
+			<button
+				type="button"
+				className={css({
+					flex: 1,
+					background:
+						"radial-gradient(circle at center, rgba(204,0,18,255), #f7471b)",
+					padding: "1rem",
+					rounded: "5rem",
+					marginLeft: "6rem",
+				})}
+			>
+				<ShinyText
+					text="投票ボタン"
+					speed={1.5}
+					className={css({
+						fontWeight: "bold",
+						color: "#cccccc",
+						lineHeight: "1.25",
+						fontSize: "1.25rem",
+					})}
+				/>
+			</button>
+			<WaitingTimes />
+		</div>
+	);
 };
