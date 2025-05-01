@@ -1,21 +1,10 @@
 "use client";
-<<<<<<< HEAD
-import { FC, useEffect } from "react";
-=======
-import { type FC, useEffect } from "react";
-import Image from "next/image";
->>>>>>> origin/add-jsrepo
+import { type FC } from "react";
 import { css } from "@panda/css";
 import { FoodDrinkMenu } from "./Menu/Menu";
 import { Access } from "./Access/Access";
-<<<<<<< HEAD
-=======
-import { isTag, Section } from "./Section/Section";
-import { WaitingTimes } from "./FloatingButton/internal/WaitTimes";
->>>>>>> origin/add-jsrepo
 import { Overlay } from "./Overlay/Overlay";
 import { Greetings } from "./Greetings/Greetings";
-import { FloatingButton } from "./FloatingButton/FloatingButton";
 import { Info } from "./Info/Info";
 import { Devider } from "./Devider/Devider";
 import { InitScrollPlugin } from "./ScrollPlugin/ScrollPlugin";
@@ -23,6 +12,7 @@ import { Tips } from "./Tips/Tips";
 import { AboutUs } from "./AboutUs/AboutUs";
 import { Blog } from "./Blog/Blog";
 import { Hero } from "./Hero/Hero";
+import { FloatingButton } from "./FloatingButton/FloatingButton";
 
 export const Main: FC = () => {
   return (
@@ -59,7 +49,7 @@ export const Main: FC = () => {
         <Tips />
         <Devider />
       </div>
-      {/* <FloatingButton /> */}
+      <FloatingButton />
       <Overlay />
       <InitScrollPlugin />
     </div>
