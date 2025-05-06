@@ -1,5 +1,5 @@
 "use client";
-import { type FC } from "react";
+import type { FC } from "react";
 import { css } from "@panda/css";
 import { FoodDrinkMenu } from "./Menu/Menu";
 import { Access } from "./Access/Access";
@@ -15,43 +15,42 @@ import { Hero } from "./Hero/Hero";
 import { FloatingButton } from "./FloatingButton/FloatingButton";
 
 export const Main: FC = () => {
-  return (
-    <div
-      className={css({
-        width: "full",
-        backgroundColor: "primary",
-      })}
-    >
-      <div
-        className={css({
-          width: "full",
-          backgroundColor: "white",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "2rem",
-        })}
-      >
-        <Hero />
-        <Devider />
-        <Info />
-        <Devider />
-        <Greetings />
-        <Devider />
-        <FoodDrinkMenu />
-        <Devider />
-        <Access />
-        <Devider />
-        <AboutUs />
-        <Devider />
-        <Blog />
-        <Devider />
-        <Tips />
-        <Devider />
-      </div>
-      <FloatingButton />
-      <Overlay />
-      <InitScrollPlugin />
-    </div>
-  );
+	return (
+		<div
+			className={css({
+				width: "full",
+				backgroundColor: "primary",
+			})}
+		>
+			<div
+				className={css({
+					width: "full",
+					backgroundColor: "white",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					gap: "2rem",
+				})}
+			>
+				<Hero />
+				<Devider />
+				<Info />
+				<Devider />
+				<Greetings />
+				<Devider />
+				<FoodDrinkMenu />
+				<Devider />
+				<Access />
+				<Devider />
+				<AboutUs />
+				<Devider />
+				<Blog />
+				<Devider />
+				<Tips />
+				<Devider />
+			</div>
+			<FloatingButton />
+			<InitScrollPlugin />
+		</div>
+	);
 };
