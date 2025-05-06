@@ -14,6 +14,12 @@ const texts = [
 ];
 
 export const Overlay: FC = () => {
+	const remove = () => {
+		const overlay = document.getElementById("overlay");
+		if (overlay) {
+			overlay.remove();
+		}
+	};
 	return (
 		<div
 			className={overlayStyles}
@@ -24,6 +30,10 @@ export const Overlay: FC = () => {
           + ${span * (texts.length - 1)}s
           + 1s
         )`, // テキストが表示されるまでの時間と遅延 (1s)
+			}}
+			id="overlay"
+			onAnimationEnd={() => {
+				remove();
 			}}
 		>
 			<ParticleBackground />
