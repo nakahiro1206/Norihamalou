@@ -61,7 +61,7 @@ export default function RootLayout({
 					})}
 				>
 					<MenuProvider>
-						{/* <Overlay /> */}
+						<Overlay />
 						<FreezeWhileMenuOpen>
 							<Header />
 							<div
