@@ -24,14 +24,14 @@ export const WaitingTimes = () => {
 				boxShadow: "0 0 5rem rgba(0, 0, 0, 0.25)",
 				borderRadius: "50%",
 				fontWeight: "bold",
-				color: "#1b90f7",
+				color: "primary",
 			})}
 		>
 			<CircularText
 				text="予想待ち時間・"
 				className={css({
 					position: "absolute",
-					color: "#1b90f7",
+					color: "primary",
 					display: { base: "block", xl: "none" },
 				})}
 			/>
@@ -39,7 +39,7 @@ export const WaitingTimes = () => {
 				text="予想待ち時間・Waiting Times・"
 				className={css({
 					position: "absolute",
-					color: "#1b90f7",
+					color: "primary",
 					display: { base: "none", xl: "block" },
 				})}
 			/>

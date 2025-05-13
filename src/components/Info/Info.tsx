@@ -54,6 +54,7 @@ export const Info = () => {
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
+          color: "beige",
         })}
       >
         <p>
@@ -98,8 +99,7 @@ export const Info = () => {
           >
             <p
               className={css({
-                textDecoration: "underline",
-                color: "sky.700",
+                color: "white",
               })}
             >
               {"東京大学本郷キャンパス"}
@@ -112,7 +112,7 @@ export const Info = () => {
                 height: "1rem",
                 width: "1rem",
                 marginLeft: "0.5rem",
-                color: "sky.700",
+                color: "white",
               })}
             />
           </button>
@@ -123,9 +123,18 @@ export const Info = () => {
             className={css({
               width: "full",
               textAlign: "center",
+              color: "white",
             })}
           >
-            {`推定待ち時間: ${wait}`}
+            {`推定待ち時間: `}
+            <span className={css({
+              fontWeight: "900",
+              color: "primary",
+              fontSize: 'xl',
+              paddingX: '0.25rem',
+            })}>
+              {`${wait}`}
+            </span>
             {"分"}
           </div>
         </SubSection>
@@ -144,8 +153,7 @@ export const Info = () => {
             >
               <p
                 className={css({
-                  textDecoration: "underline",
-                  color: "sky.700",
+                  color: "white",
                 })}
               >
                 {"投票フォームのご回答に"}
@@ -158,7 +166,7 @@ export const Info = () => {
                   height: "1rem",
                   width: "1rem",
                   marginLeft: "0.5rem",
-                  color: "sky.700",
+                  color: "white",
                 })}
               />
             </div>

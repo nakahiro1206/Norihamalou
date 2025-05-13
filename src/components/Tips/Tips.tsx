@@ -1,27 +1,75 @@
 import React, { FC } from "react";
 import { Section } from "@/components/Section/Section";
 import { css } from "@panda/css";
+import { useInView } from "react-intersection-observer";
+import SplitText from "@/blocks/TextAnimations/SplitText/SplitText";
 
-const Q: FC<{ children: React.ReactNode }> = ({ children }) => {
+const Q: FC<{ str: string }> = ({ str }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+  });
   return (
     <div
+      ref={ref}
       className={css({
-        width: "full",
+        width: "3/4",
+        alignSelf: "flex-end",
+        color: "beige",
+        backgroundColor: inView ? "primary" : "transparent",
+        textAlign: "left",
+        rounded: "lg",
+        padding: "0.5rem",
       })}
     >
-      {children}
+      {inView ? (
+        <SplitText
+          text={str}
+          className={css({
+            maxWidth: "full",
+          })}
+          delay={10}
+          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+          rootMargin="-50px"
+          onLetterAnimationComplete={() => { }}
+        />) : (
+        <div>{str}</div>
+      )
+      }
     </div>
   );
 };
 
-const A: FC<{ children: React.ReactNode }> = ({ children }) => {
+const A: FC<{ str: string }> = ({ str }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+  });
   return (
     <div
+      ref={ref}
       className={css({
         width: "full",
+        alignSelf: "flex-start",
+        color: "white",
+        textAlign: "left",
+        rounded: "lg",
+        padding: "0.5rem",
       })}
     >
-      {children}
+      {inView ? (
+        <SplitText
+          text={str}
+          className={css({
+            maxWidth: "full",
+          })}
+          delay={10}
+          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+          rootMargin="-50px"
+          onLetterAnimationComplete={() => { }}
+        />) :
+        (<div>{str}</div>)}
+
     </div>
   );
 };
@@ -51,7 +99,7 @@ export const Tips = () => {
       ],
     },
     {
-      q: [":round_pushpin: おすすめ紹介：麻婆豆腐好きなら行ってほしいお店"],
+      q: ["おすすめ紹介：麻婆豆腐好きなら行ってほしいお店"],
       a: [
         "麻婆豆腐をもっと深く楽しみたい方に、ぜひ一度足を運んでほしい名店をご紹介します。",
         "陳麻婆豆腐（東京・新宿）: 本場四川スタイルを忠実に再現。香り高い油としっかり痺れる花椒が印象的。",
@@ -73,28 +121,41 @@ export const Tips = () => {
             borderBottom: "solid 1px",
             borderColor: "primary",
             paddingRight: "1rem",
+            color: "white",
+            fontWeight: "bold",
+            fontSize: "xl",
           })}
         >
-          {"コラム"}
+          {"制作裏話Q&A"}
         </div>
-        {qa.map((item, index) => (
-          <div
-            className={css({
-              width: "full",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-            })}
-            key={index}
-          >
-            {item.q.map((question, qIndex) => (
-              <div key={qIndex}>{question}</div>
-            ))}
-            {item.a.map((answer, aIndex) => (
-              <div key={aIndex}>{answer}</div>
-            ))}
-          </div>
-        ))}
+        <div
+          className={css({
+            width: "full",
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.5rem",
+            paddingTop: "1rem",
+          })}
+        >
+          {qa.map((item, index) => (
+            <div
+              className={css({
+                width: "full",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+              })}
+              key={index}
+            >
+              {item.q.map((question, qIndex) => (
+                <Q key={qIndex} str={question} />
+              ))}
+              {item.a.map((answer, aIndex) => (
+                <A key={aIndex} str={answer} />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );

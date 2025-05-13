@@ -38,7 +38,8 @@ export const Section: FC = () => {
               width: "full",
               fontWeight: "bold",
               fontSize: "xl",
-              color: "primary",
+              color: "beige",
+              textAlign: "center",
             })}
           >
             {

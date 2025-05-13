@@ -23,11 +23,7 @@ export const Access = () => {
         <div
           className={css({
             width: "full",
-            backgroundColor: "amber.200",
-            borderRadius: "lg",
             padding: "0.5rem",
-            display: "flex",
-            alignItems: "center",
           })}
         >
           <RiErrorWarningFill
@@ -40,7 +36,10 @@ export const Access = () => {
               display: "inline",
             })}
           />
-          <span>
+          <span
+            className={css({
+              color: "amber.200"
+            })}>
             {
               "ビールを購入される方は年齢確認のリストバンドを事前に発行してからお越しください🙇"
             }
@@ -67,7 +66,15 @@ export const Access = () => {
             onClick={toggle}
           />
         </div>
-        {"画像をタップすると拡大表示できます👀"}
+        <span
+          className={css({
+            color: "white",
+            fontSize: "sm",
+            textAlign: "center",
+          })}
+        >
+          {"画像をタップすると拡大表示できます👀"}
+        </span>
       </div>
       <Preview show={showPreview} toggle={toggle} />
     </Section>

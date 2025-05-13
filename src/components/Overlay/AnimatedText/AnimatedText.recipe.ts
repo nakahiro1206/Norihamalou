@@ -7,12 +7,8 @@ export const textLineStyle = cva({
 		mb: "1.2rem",
 		opacity: 0,
 
-		backgroundImage: `linear-gradient(
-      90deg,
-      #808080 0%,   /* ダークシルバー */
-      #E0E0E0 50%,  /* ライトシルバー */
-      #808080 100%  /* ダークシルバー */
-    )`,
+		/** ダークシルバー　→ ライトシルバー　→ ダークシルバー */
+		backgroundImage: `linear-gradient(90deg,#808080 0%,#E0E0E0 50%,#808080 100%)`,
 
 		// グラデーションを文字にクリップ
 		color: "transparent",
@@ -28,7 +24,7 @@ export const textLineStyle = cva({
 		px: "4",
 		textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
 
-		"&::after": {
+		_after: {
 			content: '""',
 			position: "absolute",
 			bottom: "-0.5rem",
@@ -36,12 +32,7 @@ export const textLineStyle = cva({
 			transform: "translateX(-50%)",
 			width: 0,
 			height: "1px",
-			background: `linear-gradient(
-        90deg,
-        rgba(229, 75, 75, 0) 0%,
-        token(colors.accent) 50%,
-        rgba(229, 75, 75, 0) 100%
-      )`,
+			background: `linear-gradient(90deg,rgba(229, 75, 75, 0) 0%,token(colors.accent) 50%,rgba(229, 75, 75, 0) 100%)`,
 			transition: "width var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1)",
 			transitionDelay: "0.5s",
 		},
@@ -51,7 +42,7 @@ export const textLineStyle = cva({
 			true: {
 				opacity: 1,
 				transform: "translateY(0) scale(1)",
-				"&::after": {
+				_after: {
 					width: "80px",
 				},
 			},

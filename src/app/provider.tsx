@@ -10,13 +10,26 @@ type MenuProviderProps = {
 
 const MenuContext = createContext<MenuProviderProps>({
   isOpen: false,
-  toggleMenu: () => {},
+  toggleMenu: () => { },
 });
 
 export const useMenuContext = () => useContext(MenuContext);
 
+type HeroAreaProviderProps = {
+  inView: boolean;
+  setInView: (inView: boolean) => void;
+};
+
+const HeroAreaContext = createContext<HeroAreaProviderProps>({
+  inView: true,
+  setInView: () => { },
+});
+
+export const useHeroAreaContext = () => useContext(HeroAreaContext);
+
 export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
+  const [inView, setInView] = useState<boolean>(true);
 
   const toggleMenu = () => {
     if (isOpen === null) {
@@ -28,7 +41,9 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <MenuContext.Provider value={{ isOpen, toggleMenu }}>
-      {children}
+      <HeroAreaContext.Provider value={{ inView, setInView }}>
+        {children}
+      </HeroAreaContext.Provider>
     </MenuContext.Provider>
   );
 };

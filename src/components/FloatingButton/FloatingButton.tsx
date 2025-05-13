@@ -1,8 +1,10 @@
 import ShinyText from "@/blocks/TextAnimations/ShinyText/ShinyText";
 import { css } from "@panda/css";
 import { WaitingTimes } from "./internal/WaitTimes";
-
+import { useHeroAreaContext } from "@/app/provider";
 export const FloatingButton = () => {
+  const { inView: isHeroAreaInView } = useHeroAreaContext();
+  if (isHeroAreaInView) return null;
   return (
     <div
       className={css({
@@ -30,7 +32,7 @@ export const FloatingButton = () => {
         })}
       >
         <ShinyText
-          text="投票ボタン"
+          text="投票はこちらから！"
           speed={1.5}
           className={css({
             fontWeight: "bold",

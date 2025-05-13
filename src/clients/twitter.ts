@@ -3,7 +3,7 @@
 import { Client, auth } from "twitter-api-sdk";
 
 const twitterApiToken = process.env.TWITTER_API_TOKEN;
-const client = new Client(twitterApiToken || "");
+const twitterApiAuthCode = process.env.TWITTER_API_AUTH_CODE;
 
 type PostTweetResponse = {
   name: "PostTweetResponse";
@@ -15,37 +15,65 @@ type Err = {
   error: any;
 };
 
-export const postTweet = async (
-  text: string,
-): Promise<PostTweetResponse | Err> => {
-  try {
-    const res = await client.tweets.createTweet({
-      text,
-      reply_settings: "mentionedUsers", // disables replies unless mentioned
-    });
-
-    return { name: "PostTweetResponse", data: res };
-  } catch (error) {
-    console.error("Error posting tweet:", error);
-    console.log(error.headers);
-    console.log(error.error);
-    return { name: "Err", error };
-  }
-};
-
 const authClient = new auth.OAuth2User({
   client_id: "TFNZRVNvQXJlcFRnRDdOZ2tTUDA6MTpjaQ",
-  client_secret: "-CUoXS1ELh22WOTomBly_lu6DSeAVx3W8IgkysD8uxgPXmtWqr",
-  callback: "http://127.0.0.1:3000/callback",
-  scopes: ["tweet.read", "users.read", "offline.access", "tweet.write"],
+  client_secret: "SrOlicTODF266aziV1mQKSsBJPrO3gWJHlsCSnI9w5MiC3KLNH",
+  callback: "http://127.0.0.1",
+  scopes: ["tweet.read", "users.read", "follows.read", "offline.access"], // , "tweet.write"],
 });
+
+const client = new Client(authClient);
 
 export const generateAuthUrl = async (): Promise<string> => {
   const url = authClient.generateAuthURL({
-    code_challenge_method: "s256",
-    state: "csrf-attack-blocker",
+    code_challenge: "challenge",
+    code_challenge_method: "plain",
+    state: "state",
   });
   return new Promise((resolve) => {
     resolve(url);
   });
+};
+
+export const getAccessToken = async (
+  code: string,
+): Promise<string | undefined> => {
+  // console.log(twitterApiAuthCode);
+  try {
+    // https://github.com/xdevplatform/twitter-api-typescript-sdk/issues/25#issuecomment-1272391910
+    authClient.generateAuthURL({
+      state: "state",
+      code_challenge_method: "plain",
+      code_challenge: "challenge",
+    });
+    const token = await authClient.requestAccessToken(twitterApiAuthCode);
+    console.log(token);
+  } catch (err) {
+    console.error(err);
+  }
+  return undefined;
+};
+
+export const postTweet = async (
+  text: string,
+  code: string,
+): Promise<PostTweetResponse | Err> => {
+  try {
+    const token = await getAccessToken(code);
+    // const client = new Client(authClient);
+    const res = await client.tweets.createTweet(
+      {
+        text,
+        reply_settings: "mentionedUsers", // disables replies unless mentioned
+      },
+      {
+        headers: {},
+      },
+    );
+
+    return { name: "PostTweetResponse", data: res };
+  } catch (error) {
+    console.error("Error posting tweet:", error);
+    return { name: "Err", error };
+  }
 };

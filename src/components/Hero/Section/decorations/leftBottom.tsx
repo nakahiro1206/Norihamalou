@@ -24,7 +24,7 @@ export const LeftBottomDecoration = () => {
               width: "0.25rem",
               height: "1.5rem",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -36,7 +36,7 @@ export const LeftBottomDecoration = () => {
               height: "0.3rem",
               borderBottom: "solid 1px",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -45,7 +45,7 @@ export const LeftBottomDecoration = () => {
               height: "0.3rem",
               borderY: "solid 1px",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -54,7 +54,7 @@ export const LeftBottomDecoration = () => {
               height: "0.3rem",
               borderBottom: "solid 1px",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -65,7 +65,7 @@ export const LeftBottomDecoration = () => {
               width: "0.25rem",
               height: "0.25rem",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -74,7 +74,7 @@ export const LeftBottomDecoration = () => {
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -83,7 +83,7 @@ export const LeftBottomDecoration = () => {
               height: "0.25rem",
               borderX: "solid 1px",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -95,7 +95,7 @@ export const LeftBottomDecoration = () => {
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -103,7 +103,7 @@ export const LeftBottomDecoration = () => {
               width: "0.25rem",
               height: "0.25rem",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -112,7 +112,7 @@ export const LeftBottomDecoration = () => {
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderLeft: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -120,7 +120,7 @@ export const LeftBottomDecoration = () => {
               width: "5rem",
               height: "0.25rem",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>

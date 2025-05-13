@@ -22,7 +22,7 @@ export const LeftBottomDecoration = () => {
           <div
             className={css({
               width: "0.25rem",
-              height: "1.5rem",
+              height: "0.5rem",
               borderLeft: "solid 1px",
               borderColor: "beige",
             })}
@@ -117,7 +117,7 @@ export const LeftBottomDecoration = () => {
           ></div>
           <div
             className={css({
-              width: "5rem",
+              width: "1.5rem",
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderColor: "beige",

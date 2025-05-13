@@ -21,7 +21,7 @@ export const RightDecoration = () => {
         <div className={css({ display: "flex", justifyContent: "right" })}>
           <div
             className={css({
-              width: "5rem",
+              width: "1.5rem",
               height: "0.25rem",
               borderTop: "solid 1px",
               borderColor: "beige",
@@ -118,7 +118,7 @@ export const RightDecoration = () => {
           <div
             className={css({
               width: "0.25rem",
-              height: "1rem",
+              height: "0.5rem",
               borderRight: "solid 1px",
               borderColor: "beige",
             })}

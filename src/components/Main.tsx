@@ -19,17 +19,17 @@ export const Main: FC = () => {
 		<div
 			className={css({
 				width: "full",
-				backgroundColor: "primary",
+				backgroundColor: "black",
 			})}
 		>
 			<div
 				className={css({
 					width: "full",
-					backgroundColor: "white",
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
 					gap: "2rem",
+					paddingBottom: "calc(10vh)",// for floating area
 				})}
 			>
 				<Hero />
@@ -47,7 +47,6 @@ export const Main: FC = () => {
 				<Blog />
 				<Devider />
 				<Tips />
-				<Devider />
 			</div>
 			<FloatingButton />
 			<InitScrollPlugin />

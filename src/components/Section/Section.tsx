@@ -61,42 +61,45 @@ export const Section: FC<Props> = ({ id, className, children }) => {
         paddingX: "2rem",
       })}
     >
-      <LeftDecoration />
-      <LeftBottomDecoration />
-      <RightDecoration />
-      <RightBottomDecoration />
       <div
         className={css({
-          width: "full",
-          height: "4rem",
-          padding: "0.5rem",
-          backgroundColor: "primary",
+          width: "2/3",
+          marginX: "auto",
         })}
       >
+        <LeftDecoration />
+        <LeftBottomDecoration />
+        <RightDecoration />
+        <RightBottomDecoration />
         <div
           className={css({
             width: "full",
-            // borderY: "solid",
-            borderX: "none",
-            borderColor: "white",
-            // borderWidth: "2px",
-            paddingY: "0.25rem",
+            height: "4rem",
+            padding: "0.5rem",
+            backgroundColor: "black",
           })}
         >
-          <h1
+          <div
             className={css({
               width: "full",
-              fontWeight: "bold",
-              fontSize: "2xl",
-              color: "beige",
-              textAlign: "center",
               // borderY: "solid",
-              // borderX: "none",
-              // borderWidth: "1px",
+              borderX: "none",
+              borderColor: "white",
+              paddingY: "0.25rem",
             })}
           >
-            {label}
-          </h1>
+            <h1
+              className={css({
+                width: "full",
+                fontWeight: "bold",
+                fontSize: "2xl",
+                color: "beige",
+                textAlign: "center",
+              })}
+            >
+              {label}
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -104,7 +107,7 @@ export const Section: FC<Props> = ({ id, className, children }) => {
         className={css({
           width: "full",
           padding: "1rem", // "2rem",
-          backgroundColor: "gray.100", // "beige",
+          backgroundColor: "black",
           borderBottomRadius: "lg",
         })}
       >
