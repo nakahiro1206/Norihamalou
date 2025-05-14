@@ -50,6 +50,12 @@ export const metadata: Metadata = {
 		],
 		type: "website",
 	},
+	twitter: {
+		card: "summary_large_image",
+		title: "本格麻婆豆腐 乘濵楼",
+		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+		images: ["/mapo-in-pan.jpg"],
+	},
 };
 
 export default function RootLayout({
