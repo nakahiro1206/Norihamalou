@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Section } from "../Section/Section";
 import Image from "next/image";
 import { css } from "@panda/css";
@@ -9,17 +9,6 @@ import { Preview } from "./Preview";
 export const Access = () => {
   const [showPreview, setShowPreview] = useState(false);
   const toggle = () => setShowPreview((prev) => !prev);
-
-  useEffect(() => {
-    // Preload both images
-    const preloadImages = () => {
-      const img1 = new window.Image();
-      img1.src = "/access-map.png";
-      const img2 = new window.Image();
-      img2.src = "/access-map-portrait.png";
-    };
-    preloadImages();
-  }, []);
 
   return (
     <Section id="access">
