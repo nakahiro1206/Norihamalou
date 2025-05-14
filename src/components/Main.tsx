@@ -13,8 +13,10 @@ import { AboutUs } from "./AboutUs/AboutUs";
 import { Blog } from "./Blog/Blog";
 import { Hero } from "./Hero/Hero";
 import { FloatingButton } from "./FloatingButton/FloatingButton";
+import { useWaitingTime } from "@/hooks/waitingTime";
 
 export const Main: FC = () => {
+	const { wait, error } = useWaitingTime();
 	return (
 		<div
 			className={css({
@@ -34,7 +36,7 @@ export const Main: FC = () => {
 			>
 				<Hero />
 				<Devider />
-				<Info />
+				<Info wait={wait} error={error} />
 				<Devider />
 				<Greetings />
 				<Devider />
@@ -48,8 +50,9 @@ export const Main: FC = () => {
 				<Devider />
 				<Tips />
 			</div>
-			<FloatingButton />
+			<FloatingButton wait={wait} error={error} />
 			<InitScrollPlugin />
+			<Overlay />
 		</div>
 	);
 };

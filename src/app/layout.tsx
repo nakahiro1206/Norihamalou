@@ -9,7 +9,6 @@ import "./globals.css";
 import { MenuProvider } from "@/app/provider";
 import { FreezeWhileMenuOpen } from "@/components/FreezeWhileMenuOpen";
 import { Header } from "@/components/Header/Header";
-import { Overlay } from "@/components/Overlay/Overlay";
 import { css } from "@panda/css";
 
 const geistSans = Geist({
@@ -35,6 +34,7 @@ const zenOldMincho = Zen_Old_Mincho({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://norihamaro.vercel.app/"),
 	title: "本格麻婆豆腐 乘濵楼",
 	description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 	openGraph: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 		images: [
 			{
-				url: "/mapo-in-pan.jpg",
+				url: "https://norihamaro.vercel.app/mapo-in-pan.jpg",
 				width: 1200,
 				height: 630,
 				alt: "本格麻婆豆腐 乘濵楼",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "本格麻婆豆腐 乘濵楼",
 		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		images: ["/mapo-in-pan.jpg"],
+		images: ["https://norihamaro.vercel.app/mapo-in-pan.jpg"],
 	},
 };
 
@@ -80,7 +80,6 @@ export default function RootLayout({
 					})}
 				>
 					<MenuProvider>
-						<Overlay />
 						<FreezeWhileMenuOpen>
 							<Header />
 							<div

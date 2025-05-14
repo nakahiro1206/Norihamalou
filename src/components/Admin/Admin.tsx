@@ -4,7 +4,7 @@ import { useState, useRef, FormEvent } from "react";
 import { css } from "@panda/css";
 import { updateStatus } from "@/clients/supabase";
 import { postTweet, generateAuthUrl } from "@/clients/twitter";
-import { exhaustiveMatchingGuard } from "@/types/guard";
+import { useWaitingTime } from "@/hooks/waitingTime";
 
 export const Admin = () => {
   const [wait, setWait] = useState<string>("");
@@ -12,6 +12,7 @@ export const Admin = () => {
   const [message, setMessage] = useState("");
   const [result, setResult] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { wait: tmpWait, error } = useWaitingTime();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -69,8 +70,8 @@ export const Admin = () => {
         padding: "2rem",
       })}
     >
-      <input type="text" ref={inputRef} />
-      <button onClick={gen}>ABC</button>
+      {/* <input type="text" ref={inputRef} />
+      <button onClick={gen}>ABC</button> */}
       <form onSubmit={handleSubmit}>
         <div
           className={css({
@@ -83,6 +84,10 @@ export const Admin = () => {
             padding: "1rem",
           })}
         >
+          <div>
+            <p>現在の推定待ち時間は{tmpWait ?? "null"}分です</p>
+            <p>エラーメッセージ: {error ?? "null"}</p>
+          </div>
           <label
             className={css({ width: "full", display: "flex", gap: "1rem" })}
           >

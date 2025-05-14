@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Section } from "../Section/Section";
 import { css } from "@panda/css";
 import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
-import { useWaitingTime } from "@/services/waitingTime";
 import { RiLinksLine, RiExternalLinkLine } from "@remixicon/react";
 import Link from "next/link";
 
@@ -44,8 +43,7 @@ const SubSection: FC<SubSectionProps> = ({ title, children }) => {
   );
 };
 
-export const Info = () => {
-  const { data: wait } = useWaitingTime();
+export const Info = ({ wait, error }: { wait: number | null, error: string | null }) => {
   return (
     <Section id="info">
       <div

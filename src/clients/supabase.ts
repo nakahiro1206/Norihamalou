@@ -31,3 +31,41 @@ export const updateStatus = async (
   });
   return error;
 };
+
+type Wait = {
+  type: "wait";
+  wait_minutes: number;
+}
+type Err = {
+  type: "error";
+  message: string;
+};
+
+export const fetchWait = async (): Promise<Wait | Err> => {
+  const { data, error } = await supabase
+    .from("stalls_status")
+    .select("wait_minutes")
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .single();
+
+  if (error) {
+    console.error("Error fetching wait time:", error.message);
+    return {
+      type: "error",
+      message: error.message,
+    };
+  } else {
+    const wait: number | null = data?.wait_minutes ?? null;
+    if (wait === null) {
+      return {
+        type: "error",
+        message: "データがありません",
+      };
+    }
+    return {
+      type: "wait",
+      wait_minutes: wait,
+    };
+  }
+};
