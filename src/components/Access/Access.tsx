@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Section } from "../Section/Section";
 import Image from "next/image";
 import { css } from "@panda/css";
@@ -9,6 +9,17 @@ import { Preview } from "./Preview";
 export const Access = () => {
   const [showPreview, setShowPreview] = useState(false);
   const toggle = () => setShowPreview((prev) => !prev);
+
+  useEffect(() => {
+    // Preload both images
+    const preloadImages = () => {
+      const img1 = new window.Image();
+      img1.src = "/access-map.png";
+      const img2 = new window.Image();
+      img2.src = "/access-map-portrait.png";
+    };
+    preloadImages();
+  }, []);
 
   return (
     <Section id="access">
@@ -41,7 +52,7 @@ export const Access = () => {
               color: "amber.200"
             })}>
             {
-              "ビールを購入される方は年齢確認のリストバンドを事前に発行してからお越しください🙇"
+              "ビールを購入される方は年齢確認のリストバンドを事前に発行してからお越しください"
             }
           </span>
         </div>
@@ -73,7 +84,7 @@ export const Access = () => {
             textAlign: "center",
           })}
         >
-          {"画像をタップすると拡大表示できます👀"}
+          {"画像をタップすると拡大表示できます"}
         </span>
       </div>
       <Preview show={showPreview} toggle={toggle} />

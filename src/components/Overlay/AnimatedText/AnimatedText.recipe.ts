@@ -2,13 +2,13 @@ import { cva } from "@panda/css";
 
 export const textLineStyle = cva({
 	base: {
-		fontSize: "2xl",
+		fontSize: "xl",
 		lineHeight: "tall",
 		mb: "1.2rem",
 		opacity: 0,
 
 		/** ダークシルバー　→ ライトシルバー　→ ダークシルバー */
-		backgroundImage: `linear-gradient(90deg,#808080 0%,#E0E0E0 50%,#808080 100%)`,
+		backgroundImage: `linear-gradient(90deg,#A0A0A0 0%,#E0E0E0 50%,#A0A0A0 100%)`,
 
 		// グラデーションを文字にクリップ
 		color: "transparent",
