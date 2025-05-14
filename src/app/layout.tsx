@@ -37,6 +37,19 @@ const zenOldMincho = Zen_Old_Mincho({
 export const metadata: Metadata = {
 	title: "本格麻婆豆腐 乘濵楼",
 	description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+	openGraph: {
+		title: "本格麻婆豆腐 乘濵楼",
+		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+		images: [
+			{
+				url: "/mapo-in-pan.jpg",
+				width: 1200,
+				height: 630,
+				alt: "本格麻婆豆腐 乘濵楼",
+			},
+		],
+		type: "website",
+	},
 };
 
 export default function RootLayout({
