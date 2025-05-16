@@ -11,16 +11,6 @@ import { FreezeWhileMenuOpen } from "@/components/FreezeWhileMenuOpen";
 import { Header } from "@/components/Header/Header";
 import { css } from "@panda/css";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
-
 const hinaMincho = Hina_Mincho({
 	variable: "--fonts-hina-mincho",
 	subsets: ["latin"],
@@ -42,7 +32,7 @@ export const metadata: Metadata = {
 		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 		images: [
 			{
-				url: "https://norihamaro.vercel.app/mapo-in-pan.jpg",
+				url: "https://norihamaro.vercel.app/ogp.png",
 				width: 1200,
 				height: 630,
 				alt: "本格麻婆豆腐 乘濵楼",
@@ -54,7 +44,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "本格麻婆豆腐 乘濵楼",
 		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		images: ["https://norihamaro.vercel.app/mapo-in-pan.jpg"],
+		images: ["https://norihamaro.vercel.app/ogp.png"],
 	},
 };
 
@@ -68,6 +58,7 @@ export default function RootLayout({
 			lang="en"
 			className={css({
 				scrollBehavior: "smooth",
+				backgroundColor: "black",
 			})}
 		>
 			<body
@@ -81,10 +72,10 @@ export default function RootLayout({
 				>
 					<MenuProvider>
 						<FreezeWhileMenuOpen>
-							<Header />
+							{/* <Header /> */}
 							<div
 								className={css({
-									minHeight: "95lvh",
+									minHeight: "100lvh",
 								})}
 							>
 								{children}

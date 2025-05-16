@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Section } from "../Section/Section";
 import { css } from "@panda/css";
 import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
-import { RiLinksLine, RiExternalLinkLine } from "@remixicon/react";
+import { RiLinksLine, RiTwitterXLine, RiInstagramLine } from "@remixicon/react";
 import Link from "next/link";
 
 type SubSectionProps = {
@@ -67,7 +67,7 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
           {"が今年の五月祭に帰ってきます！！"}
           <br />
           {
-            "都内の麻婆豆腐を100軒以上食べめぐった東大生が、本気で届ける究極の麻婆豆腐。今年も試作を重ね、去年より進化させます🔥"
+            "都内の麻婆豆腐を100軒以上食べめぐった東大生が、本気で届ける究極の麻婆豆腐。試作と改良を重ね、去年よりも進化した味をお楽しみください。"
           }
         </p>
 
@@ -76,11 +76,12 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
             className={css({
               width: "full",
               textAlign: "center",
+              color: "white",
             })}
           >
             {"第98回五月祭"}
             <br />
-            {"2025/5/24(Sat.) ~ 2025/5/25(Sun.)"}
+            {"2025年5月24日(土) - 25日(日)"}
           </div>
         </SubSection>
 
@@ -90,29 +91,37 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
               textAlign: "center",
               width: "full",
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
+              color: "white",
             })}
             onClick={() => scrollToSection("access")}
           >
-            <p
+            <div>{"東京大学本郷キャンパス"}</div>
+            <div>
+            <span
               className={css({
                 color: "white",
+                textDecoration: "underline",
+                textDecorationColor: "white",
+                textDecorationThickness: "0.05rem",
               })}
             >
-              {"東京大学本郷キャンパス"}
-              <br />
-              {"工学部広場 B3, 4"}
-            </p>
-            <RiLinksLine
+              <RiLinksLine
               className={css({
-                display: "inline",
+                display: "inline-block",
                 height: "1rem",
                 width: "1rem",
-                marginLeft: "0.5rem",
+                margin: '0 auto',
                 color: "white",
+                textAlign: "center",
               })}
             />
+              {"工学部広場 B3, 4 (スターバックス 東京大学工学部店前)"}
+            </span>
+            
+            </div>
           </button>
         </SubSection>
 
@@ -124,7 +133,7 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
               color: "white",
             })}
           >
-            {`推定待ち時間: `}
+            {`約`}
             <span className={css({
               fontWeight: "900",
               color: "primary",
@@ -138,37 +147,94 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
         </SubSection>
 
         <SubSection title={"投票フォーム"}>
-          <Link href="/">
-            {/* should change the link to vote form! */}
+          <Link href="https://gogatsusai.jp/98/visitor/project/165">
             <div
               className={css({
                 width: "full",
                 textAlign: "center",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
               })}
             >
-              <p
+              <span
                 className={css({
                   color: "white",
+                  textDecoration: "underline",
+                  textDecorationColor: "white",
+                  textDecorationThickness: "0.05rem",
                 })}
               >
-                {"投票フォームのご回答に"}
-                <br />
-                {"ご協力ください！"}
-              </p>
-              <RiExternalLinkLine
+                <RiLinksLine
                 className={css({
-                  display: "inline",
+                  display: "inline-block",
                   height: "1rem",
                   width: "1rem",
-                  marginLeft: "0.5rem",
+                  margin: '0 auto',
                   color: "white",
-                })}
-              />
+                })}/>
+                {"投票フォームのご回答にご協力ください"}
+              </span>
             </div>
           </Link>
+        </SubSection>
+
+        <SubSection title={"アンケート"}>
+        <Link href="https://forms.gle/4P2rEoSPLqjzYC4y5">
+            <div
+              className={css({
+                width: "full",
+                textAlign: "center",
+              })}
+            >
+              <span
+                className={css({
+                  color: "white",
+                  textDecoration: "underline",
+                  textDecorationColor: "white",
+                  textDecorationThickness: "0.05rem",
+                })}
+              >
+                <RiLinksLine
+                className={css({
+                  display: "inline-block",
+                  height: "1rem",
+                  width: "1rem",
+                  margin: '0 auto',
+                  color: "white",
+                })}/>
+                {"ご意見・ご感想をお聞かせください"}
+              </span>
+            </div>
+          </Link>
+        </SubSection>
+
+        <SubSection title={"SNS"}>
+          <div
+            className={css({
+              width: "full",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "1rem",
+            })}
+          >
+            <Link href="https://www.instagram.com/norihamaro">
+                <RiInstagramLine
+                  className={css({
+                    width: "1.5rem",
+                    height: "1.5rem",
+                  })}
+                />
+              </Link>
+              <Link href="https://x.com/Norihamaro">
+                <RiTwitterXLine
+                  className={css({
+                    width: "1.5rem",
+                    height: "1.5rem",
+                  })}
+                />
+              </Link>
+          </div>
         </SubSection>
       </div>
     </Section>

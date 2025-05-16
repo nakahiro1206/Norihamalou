@@ -10,7 +10,7 @@ export const previewStyles = sva({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "white",
+      backgroundColor: "black",
       paddingY: "2rem",
     },
     image: {

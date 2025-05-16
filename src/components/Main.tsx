@@ -4,7 +4,6 @@ import { css } from "@panda/css";
 import { FoodDrinkMenu } from "./Menu/Menu";
 import { Access } from "./Access/Access";
 import { Overlay } from "./Overlay/Overlay";
-import { Greetings } from "./Greetings/Greetings";
 import { Info } from "./Info/Info";
 import { Devider } from "./Devider/Devider";
 import { InitScrollPlugin } from "./ScrollPlugin/ScrollPlugin";
@@ -37,8 +36,6 @@ export const Main: FC = () => {
 				<Hero />
 				<Devider />
 				<Info wait={wait} error={error} />
-				<Devider />
-				<Greetings />
 				<Devider />
 				<FoodDrinkMenu />
 				<Devider />

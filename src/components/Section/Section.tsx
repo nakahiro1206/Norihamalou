@@ -5,10 +5,9 @@ import { RightDecoration } from "./decorations/right";
 import { RightBottomDecoration } from "./decorations/rightBottom";
 import { LeftBottomDecoration } from "./decorations/leftBottom";
 import { exhaustiveMatchingGuard } from "@/types/guard";
-
+import Image from "next/image";
 export type Tags =
   | "info"
-  | "greetings"
   | "menu"
   | "access"
   | "about-us"
@@ -30,24 +29,23 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const idToLabel = (id: Tags): string => {
+const HeaderImg = null
+export const idToLabel = (id: Tags): string | typeof HeaderImg => {
   switch (id) {
     default:
       return exhaustiveMatchingGuard(id);
     case "info":
-      return "INFO";
-    case "greetings":
-      return "GREETINGS";
+      return null;
     case "menu":
-      return "FOOD & DRINK";
+      return "メニュー";
     case "access":
-      return "ACCESS";
+      return "アクセス";
     case "about-us":
-      return "ABOUT US";
+      return "ストーリー";
     case "blog":
-      return "BLOG";
+      return "こだわり";
     case "tips":
-      return "TIPS";
+      return "制作秘話";
   }
 };
 
@@ -77,29 +75,36 @@ export const Section: FC<Props> = ({ id, className, children }) => {
             height: "4rem",
             padding: "0.5rem",
             backgroundColor: "black",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: "bold",
+            fontSize: "2xl",
+            color: "beige",
+            textAlign: "center",
           })}
         >
-          <div
-            className={css({
-              width: "full",
-              // borderY: "solid",
-              borderX: "none",
-              borderColor: "white",
-              paddingY: "0.25rem",
-            })}
-          >
-            <h1
+          {label === HeaderImg ? 
+              <div
               className={css({
-                width: "full",
-                fontWeight: "bold",
-                fontSize: "2xl",
-                color: "beige",
-                textAlign: "center",
-              })}
-            >
-              {label}
-            </h1>
-          </div>
+                width: 'full',
+                height: 'full',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              })}>
+              <Image
+                src="/header-mini.png"
+                alt="Norihama-lou icon"
+                width={1000}
+                height={1000}
+                className={css({
+                  height: "2rem",
+                  width: "auto",
+                  objectFit: "contain",
+                  objectPosition: "center",
+                })}
+              /></div> : label}
         </div>
       </div>
 

@@ -19,7 +19,7 @@ export const Hero = () => {
 			ref={ref}
 			className={css({
 				width: "full",
-				minHeight: "95lvh",
+				minHeight: "100lvh",
 				display: "flex",
 				flexDirection: "column",
 				gap: "2rem",

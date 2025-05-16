@@ -41,7 +41,7 @@ export const Access = () => {
               color: "amber.200"
             })}>
             {
-              "ビールを購入される方は年齢確認のリストバンドを事前に発行してからお越しください"
+              "ビールのご購入にはアルコールパスポートが必要です。お近くの案内所にて無料で発行できますので着用してお越しください。"
             }
           </span>
         </div>
@@ -50,7 +50,6 @@ export const Access = () => {
           className={css({
             width: "full",
             padding: "1rem",
-            backgroundColor: "white",
             rounded: "2xl",
           })}
         >

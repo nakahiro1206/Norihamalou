@@ -95,7 +95,7 @@ export class ParticleSystem {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 		// Regularly add new particles from the bottom
-		if (Math.random() > 0.80) {
+		if (Math.random() > 0.85) {
 			this.addParticle(
 				Math.random() * this.canvas.width,
 				this.canvas.height + 50,

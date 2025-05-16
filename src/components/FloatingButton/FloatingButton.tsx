@@ -3,18 +3,20 @@ import { css } from "@panda/css";
 import { useHeroAreaContext } from "@/app/provider";
 import CircularText from "@/blocks/TextAnimations/CircularText/CircularText";
 import CountUp from "@/blocks/TextAnimations/CountUp/CountUp";
+import Link from "next/link";
+import { RiExternalLinkLine } from "@remixicon/react";
 
 export const FloatingButton = ({ wait, error }: { wait: number | null, error: string | null }) => {
   const { inView: isHeroAreaInView } = useHeroAreaContext();
   if (isHeroAreaInView) return null;
   return (
+	<>
     <div
       className={css({
-        width: "full",
-        height: "calc(15lvh+0.5rem)",
+        width: "fit-content",
         position: "fixed",
-        bottom: "0.5rem",
-
+        top: "0.5rem",
+		right: "0.5rem",
         rounded: "full",
         display: "flex",
         gap: "1rem",
@@ -22,28 +24,49 @@ export const FloatingButton = ({ wait, error }: { wait: number | null, error: st
         justifyContent: "center",
       })}
     >
-      <button
-        type="button"
+      <Link
+        href="https://gogatsusai.jp/98/visitor/project/165"
         className={css({
-          flex: 1,
-          background:
-            "radial-gradient(circle at center, rgba(204,0,18,255), #f7471b)",
-          padding: "1rem",
-          rounded: "5rem",
-          marginLeft: "6rem",
+          width: "fit-content",
+          height: "full",
+		  display: "flex",
+		  alignItems: "center",
+		  justifyContent: "center",
+          background:"black",
+		  color: 'beige',
+          padding: "0.5rem",
+		  gap: "0.25rem",
+          rounded: "lg",
+		  animationName: "breathing",
+		  animationDuration: "2s",
+		  animationIterationCount: "infinite",
+		  animationTimingFunction: "ease-in-out",
+		  animationFillMode: "forwards",
         })}
-      >
-        <ShinyText
-          text="投票はこちらから！"
-          speed={1.5}
-          className={css({
-            fontWeight: "bold",
-            color: "#cccccc",
-            lineHeight: "1.25",
-            fontSize: "1.25rem",
-          })}
-        />
-      </button>
+      	>
+		{"投票はこちら"}
+		<RiExternalLinkLine
+                className={css({
+                  display: "inline",
+                  height: "1rem",
+                  width: "1rem",
+                  color: "white",
+                })}
+              />
+      </Link>
+	  <div
+      className={css({
+        width: "fit-content",
+        position: "fixed",
+        bottom: "0.5rem",
+		left: "0.5rem",
+        rounded: "full",
+        display: "flex",
+        gap: "1rem",
+        alignItems: "flex-end",
+        justifyContent: "center",
+      })}
+    >
       <section
 			className={css({
 				display: "flex",
@@ -52,31 +75,19 @@ export const FloatingButton = ({ wait, error }: { wait: number | null, error: st
 				alignItems: "center",
 				justifyContent: "center",
 				position: "relative",
-				width: "max(5rem, 7.5%)",
-				aspectRatio: "1/1",
-				backgroundColor: "rgba(255, 255, 255, 0.9)",
-				boxShadow: "0 0 5rem rgba(0, 0, 0, 0.25)",
-				borderRadius: "50%",
+				backgroundColor: "black",
+				borderRadius: "lg",
 				fontWeight: "bold",
-				color: "primary",
+				color: "beige",
+				padding: "0.25rem",
+				animationName: "pop",
+				animationDuration: '2s',
+				animationIterationCount: 'infinite',
+				animationTimingFunction: "ease-in-out",
+				animationFillMode: 'forwards',
 			})}
 		>
-			<CircularText
-				text="予想待ち時間・"
-				className={css({
-					position: "absolute",
-					color: "primary",
-					display: { base: "block", xl: "none" },
-				})}
-			/>
-			<CircularText
-				text="予想待ち時間・Waiting Times・"
-				className={css({
-					position: "absolute",
-					color: "primary",
-					display: { base: "none", xl: "block" },
-				})}
-			/>
+			<p>{"待ち時間"}</p>
 			{wait !== null ? (
 				<p
 					className={css({
@@ -85,12 +96,17 @@ export const FloatingButton = ({ wait, error }: { wait: number | null, error: st
 						gap: "0.25rem",
 					})}
 				>
-					<CountUp to={wait} delay={2} />分
+					<CountUp 
+						from={0} 
+						to={wait}
+						/>分
 				</p>
 			) : (
 				<p>...</p>
 			)}
 		</section>
+		</div>
     </div>
+	</>
   );
 };

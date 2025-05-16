@@ -10,6 +10,7 @@ import {
 import { css } from "@panda/css";
 import { RiInstagramLine, RiTwitterXLine } from "@remixicon/react";
 import { scrollToSection } from "../ScrollPlugin/ScrollPlugin";
+import { idToLabel } from "../Section/Section";
 
 export const MenuArea: FC<{
   isOpen: boolean | null;
@@ -38,21 +39,7 @@ export const MenuArea: FC<{
                 order: "1st",
               })}
             >
-              INFO
-            </button>
-          </div>
-          <div className={menuItemFrameStyles({})}>
-            <button
-              onClick={() => {
-                toggleMenu();
-                scrollToSection("greetings");
-              }}
-              className={menuItemStyles({
-                state: isOpen ? "open" : "closed",
-                order: "2nd",
-              })}
-            >
-              GREETINGS
+              基本情報
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>
@@ -63,10 +50,10 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "3rd",
+                order: "2nd",
               })}
             >
-              FOOD & DRINK
+              {idToLabel("menu")}
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>
@@ -78,10 +65,10 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "4th",
+                order: "3rd",
               })}
             >
-              ACCESS
+              {idToLabel("access")}
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>
@@ -93,10 +80,10 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "5th",
+                order: "4th",
               })}
             >
-              ABOUT US
+              {idToLabel("about-us")}
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>
@@ -108,10 +95,10 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "6th",
+                order: "5th",
               })}
             >
-              BLOG
+              {idToLabel("blog")}
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>
@@ -123,10 +110,10 @@ export const MenuArea: FC<{
               }}
               className={menuItemStyles({
                 state: isOpen ? "open" : "closed",
-                order: "7th",
+                order: "6th",
               })}
             >
-              TIPS
+              {idToLabel("tips")}
             </button>
           </div>
           <div className={menuItemFrameStyles({})}>

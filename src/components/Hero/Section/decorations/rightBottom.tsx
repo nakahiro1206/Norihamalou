@@ -13,7 +13,7 @@ export const RightBottomDecoration = () => {
         className={css({
           position: "absolute",
           right: "0",
-          bottom: "-15rem",
+          bottom: "-16rem",
           marginRight: "0.25rem",
           marginBottom: "0.25rem",
         })}

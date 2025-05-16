@@ -12,7 +12,7 @@ export const Greetings = () => {
   });
 
   return (
-    <Section id="greetings">
+    <Section id="info">
       <div
         className={css({
           width: "full",

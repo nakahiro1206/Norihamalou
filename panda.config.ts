@@ -23,6 +23,7 @@ export default defineConfig({
 				colors: {
 					beige: { value: "rgba(241,235,215,255)" }, // norihamalou-unique beige color
 					primary: { value: "rgba(204,0,18,255)" }, // norihama-lou unique color
+					opaqueBeige: { value: "rgba(241,235,215,0.5)" },
 					secondary: { value: "#0070f3" },
 					accent: { value: "#e54b4b" },
 					neutral: { value: "#0070f3" },
@@ -116,6 +117,62 @@ export default defineConfig({
 					},
 					"100%": {
 						transform: "translateY(-100%)",
+					},
+				},
+				scaleFadeIn: {
+					"0%": {
+						opacity: "0",
+						transform: "scale(0)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "scale(1)",
+					},
+				},
+				slideInLeft: {
+					"0%": {
+						opacity: "0",
+						transform: "translateX(-100%)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateX(0)",
+					},
+				},
+				slideInRight: {
+					"0%": {
+						opacity: "0",
+						transform: "translateX(100%)",
+					},
+				},
+				breathing: {
+					"0%": {
+						transform: "scale(1)",
+						outline: "0px solid",
+						outlineColor: "opaqueBeige",
+					},
+					"50%": {
+						transform: "scale(1.05)",
+						boxShadow: " 0 1px 15px beige",
+					},
+					"100%": {
+						transform: "scale(1)",
+						outline: "0px solid",
+						outlineColor: "opaqueBeige",
+					},
+				},
+				pop: {
+					"0%": {
+						transform: "translateY(0)",
+						boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
+					},
+					"50%": {
+						transform: "translateY(-5px)",
+						boxShadow: "0 5px 15px beige",
+					},
+					"100%": {
+						transform: "translateY(0)",
+						boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
 					},
 				},
 			},

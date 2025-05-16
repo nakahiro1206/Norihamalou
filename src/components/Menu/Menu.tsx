@@ -1,8 +1,12 @@
 import { Section } from "../Section/Section";
 import { css } from "@panda/css";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 export const FoodDrinkMenu = () => {
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
   return (
     <Section id="menu">
       <div
@@ -21,9 +25,9 @@ export const FoodDrinkMenu = () => {
             objectFit: "contain",
             objectPosition: "center",
             width: "full",
-            rounded: "lg",
+            rounded: "3rem",
           })}
-          src="/mapo-zoom.jpg"
+          src="/mapo-in-dish.jpg"
           alt="Mapo Tofu Dish"
         />
       </div>
@@ -44,9 +48,27 @@ export const FoodDrinkMenu = () => {
           textAlign: 'right',
           paddingRight: '1rem'
         })}>
-          <div>{"麻婆豆腐"}</div>
-          <div>{"塩にぎり"}</div>
-          <div>{"ビール"}</div>
+          <div
+          className={css({
+            animationName: inView ? "slideInRight" : "",
+            animationDuration: "1s",
+            animationDelay: "0s",
+            animationFillMode: "forwards",
+          })}>{"本格麻婆豆腐"}</div>
+          <div
+          className={css({
+            animationName: inView ? "slideInRight" : "",
+            animationDuration: "1s",
+            animationDelay: "0s",
+            animationFillMode: "forwards",
+          })}>{"塩にぎり"}</div>
+          <div
+          className={css({
+            animationName: inView ? "slideInRight" : "",
+            animationDuration: "1s",
+            animationDelay: "0s",
+            animationFillMode: "forwards",
+          })}>{"ビール"}</div>
         </div>
         <div className={css({
           width: '1/2',
@@ -54,7 +76,14 @@ export const FoodDrinkMenu = () => {
           flexDirection: 'column',
           paddingLeft: '1rem'
         })}>
-          <div>
+          <div
+          ref={ref}
+          className={css({
+            animationName: inView ? "slideInLeft" : "",
+            animationDuration: "1s",
+            animationDelay: "0s",
+            animationFillMode: "forwards",
+          })}>
             <span
               className={css({
                 fontSize: "lg",
@@ -67,7 +96,14 @@ export const FoodDrinkMenu = () => {
             </span>
             <span>{"円"}</span>
           </div>
-          <div>
+          <div
+          ref={ref}
+          className={css({
+            animationName: inView ? "slideInLeft" : "",
+            animationDuration: "1s",
+            animationDelay: "0s",
+            animationFillMode: "forwards",
+          })}>
             <span
               className={css({
                 fontSize: "lg",
@@ -80,7 +116,14 @@ export const FoodDrinkMenu = () => {
             </span>
             <span>{"円"}</span>
           </div>
-          <div>
+          <div
+          ref={ref}
+          className={css({
+            animationName: inView ? "slideInLeft" : "",
+            animationDuration: "1s",
+            animationDelay: "0s",
+            animationFillMode: "forwards",
+          })}>
             <span
               className={css({
                 fontSize: "lg",
@@ -89,7 +132,7 @@ export const FoodDrinkMenu = () => {
                 paddingRight: "0.5rem"
               })}
             >
-              {"700"}
+              {"500"}
             </span>
             <span>{"円"}</span>
           </div>
