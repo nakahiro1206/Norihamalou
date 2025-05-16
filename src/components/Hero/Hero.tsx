@@ -221,6 +221,7 @@ export const Hero = () => {
 							"linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%)",
 					})}
 				/>
+			</div>
 		</section>
 	);
 };
