@@ -1,19 +1,12 @@
 "use client";
-import React, { FC, useRef, useEffect } from "react";
+import React, { FC } from "react";
 import { useMenuContext } from "@/app/provider";
 import { exhaustiveMatchingGuard } from "@/types/guard";
 import { css } from "@panda/css";
-import dynamic from "next/dynamic";
 import { MenuArea } from "./MenuArea";
-import {
-  RiMenuSearchLine,
-  RiCloseLargeLine,
-  RiCloseLine,
-} from "@remixicon/react";
+import { RiMenuSearchLine, RiCloseLine } from "@remixicon/react";
 import Link from "next/link";
-
-const MenuIcon = dynamic(() => import("@/icons/MenuIcon"), { ssr: false });
-const CloseIcon = dynamic(() => import("@/icons/CloseIcon"), { ssr: false });
+import Image from "next/image";
 
 const MenuTrigger: FC<{ isOpen: boolean | null; toggleMenu: () => void }> = ({
   isOpen,
@@ -111,7 +104,18 @@ export const Header: FC = () => {
                 }
               }}
             >
-              {"乘濵楼"}
+              <Image
+                src="/header.png"
+                alt="Norihama-lou icon"
+                width={1000}
+                height={1000}
+                className={css({
+                  height: "4lvh",
+                  width: "auto",
+                  objectFit: "contain",
+                  objectPosition: "left",
+                })}
+              />
             </Link>
           </p>
           <MenuTrigger isOpen={isOpen} toggleMenu={toggleMenu} />

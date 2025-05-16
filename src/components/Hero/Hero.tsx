@@ -1,9 +1,22 @@
 import { css } from "@panda/css";
 import Image from "next/image";
+import { Section } from "./Section/Section";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { useHeroAreaContext } from "@/app/provider";
 
 export const Hero = () => {
+	const { ref, inView, entry } = useInView({
+		/* Optional options */
+		threshold: 0.5,
+	});
+	const { setInView } = useHeroAreaContext();
+	useEffect(() => {
+		setInView(inView);
+	}, [inView]);
 	return (
 		<section
+      ref={ref}
 			className={css({
 				width: "100vw",
 				minHeight: "100lvh",
@@ -208,7 +221,6 @@ export const Hero = () => {
 							"linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%)",
 					})}
 				/>
-			</div>
 		</section>
 	);
 };

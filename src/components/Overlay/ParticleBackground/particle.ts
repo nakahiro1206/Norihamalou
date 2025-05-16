@@ -38,20 +38,20 @@ export class ParticleSystem {
 		this.resizeCanvas();
 		window.addEventListener("resize", () => this.resizeCanvas());
 
-		document.addEventListener("mousemove", (e) => {
-			this.mouseX = e.clientX;
-			this.mouseY = e.clientY;
-			this.isMouseMoving = true;
+		// document.addEventListener("mousemove", (e) => {
+		// 	this.mouseX = e.clientX;
+		// 	this.mouseY = e.clientY;
+		// 	this.isMouseMoving = true;
 
-			if (this.mouseTimer) clearTimeout(this.mouseTimer);
-			this.mouseTimer = setTimeout(() => {
-				this.isMouseMoving = false;
-			}, 100);
+		// 	if (this.mouseTimer) clearTimeout(this.mouseTimer);
+		// 	this.mouseTimer = setTimeout(() => {
+		// 		this.isMouseMoving = false;
+		// 	}, 100);
 
-			if (Math.random() > 0.7) {
-				this.addParticle(this.mouseX, this.mouseY);
-			}
-		});
+		// 	if (Math.random() > 0.7) {
+		// 		this.addParticle(this.mouseX, this.mouseY);
+		// 	}
+		// });
 
 		// Start with some initial particles
 		for (let i = 0; i < 20; i++) {
@@ -78,12 +78,12 @@ export class ParticleSystem {
 			y,
 			size: Math.random() * 100 + 50, // Larger particles for smoke effect
 			speedX: (Math.random() - 0.5) * 0.5, // Slower horizontal movement
-			speedY: Math.random() * -1 - 0.2, // Gentle upward movement
+			speedY: Math.random() * -1 - 0.75, // Gentle upward movement
 			opacity: Math.random() * 0.3 + 0.1, // Lower opacity for smoke effect
 			life: 0,
-			maxLife: Math.random() * 200 + 100, // Longer life for sustained effect
+			maxLife: Math.random() * 200 + 500, // Longer life for sustained effect
 			wiggle: 0,
-			wiggleSpeed: (Math.random() - 0.5) * 0.02, // Subtle wiggle movement
+			wiggleSpeed: (Math.random() - 0.5) * 0.05, // Subtle wiggle movement
 		};
 
 		this.particles.push(particle);
@@ -95,7 +95,7 @@ export class ParticleSystem {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 		// Regularly add new particles from the bottom
-		if (Math.random() > 0.95) {
+		if (Math.random() > 0.85) {
 			this.addParticle(
 				Math.random() * this.canvas.width,
 				this.canvas.height + 50,

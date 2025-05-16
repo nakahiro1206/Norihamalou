@@ -31,13 +31,13 @@ export const menuWrapperStyles = cva({
     state: {
       open: {
         animationName: "expandDown",
-        animationDuration: "0.7s",
+        animationDuration: "0.8s",
         animationTimingFunction: "ease-in-out",
         animationFillMode: "forwards",
       },
       closed: {
         animationName: "collapseUp",
-        animationDuration: "0.7s",
+        animationDuration: "0.8s",
         animationTimingFunction: "ease-in-out",
         animationFillMode: "forwards",
       },

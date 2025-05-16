@@ -12,7 +12,7 @@ export const Devider = () => {
         className={css({
           width: "full",
           borderTop: "solid 1px",
-          borderColor: "gray.500",
+          borderColor: "white",
         })}
       ></div>
     </div>

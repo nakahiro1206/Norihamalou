@@ -24,7 +24,7 @@ export const RightDecoration = () => {
               width: "5rem",
               height: "0.25rem",
               borderTop: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -33,7 +33,7 @@ export const RightDecoration = () => {
               height: "0.25rem",
               borderTop: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -41,7 +41,7 @@ export const RightDecoration = () => {
               width: "0.25rem",
               height: "0.25rem",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -50,7 +50,7 @@ export const RightDecoration = () => {
               height: "0.25rem",
               borderTop: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -62,7 +62,7 @@ export const RightDecoration = () => {
               height: "0.25rem",
               borderX: "solid 1px",
               borderTop: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -71,7 +71,7 @@ export const RightDecoration = () => {
               height: "0.25rem",
               borderTop: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -79,7 +79,7 @@ export const RightDecoration = () => {
               width: "0.25rem",
               height: "0.25rem",
               borderTop: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -91,7 +91,7 @@ export const RightDecoration = () => {
               height: "0.3rem",
               borderTop: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -100,7 +100,7 @@ export const RightDecoration = () => {
               height: "0.3rem",
               borderY: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -109,7 +109,7 @@ export const RightDecoration = () => {
               height: "0.3rem",
               borderTop: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -120,7 +120,7 @@ export const RightDecoration = () => {
               width: "0.25rem",
               height: "1rem",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>

@@ -1,6 +1,8 @@
 import { css } from "@panda/css";
 
 export const overlayStyles = css({
+	width: "full",
+	height: "100lvh",
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "center",

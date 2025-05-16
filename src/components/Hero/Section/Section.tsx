@@ -1,10 +1,8 @@
 import { css } from "@panda/css";
 import { FC } from "react";
 import { LeftDecoration } from "./decorations/left";
-import { RightDecoration } from "./decorations/right";
 import { RightBottomDecoration } from "./decorations/rightBottom";
-import { LeftBottomDecoration } from "./decorations/leftBottom";
-
+import Image from "next/image";
 export const Section: FC = () => {
   return (
     <div
@@ -14,14 +12,14 @@ export const Section: FC = () => {
       })}
     >
       <LeftDecoration />
-      <LeftBottomDecoration />
-      <RightDecoration />
+      {/* <LeftBottomDecoration /> */}
+      {/* <RightDecoration /> */}
       <RightBottomDecoration />
       <div
         className={css({
           width: "full",
           padding: "2rem",
-          height: "15rem",
+          height: "16rem",
         })}
       >
         <div
@@ -29,16 +27,30 @@ export const Section: FC = () => {
             width: "full",
             height: "full",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            gap: '1rem',
           })}
         >
+          <Image
+                src="/header.png"
+                alt="Norihama-lou icon"
+                width={1000}
+                height={1000}
+                className={css({
+                  width: "full",
+                  objectFit: "contain",
+                  objectPosition: "left",
+                })}
+              />
           <h1
             className={css({
               width: "full",
               fontWeight: "bold",
               fontSize: "xl",
-              color: "primary",
+              color: "beige",
+              textAlign: "center",
             })}
           >
             {

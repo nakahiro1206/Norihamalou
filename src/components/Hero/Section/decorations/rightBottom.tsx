@@ -13,7 +13,7 @@ export const RightBottomDecoration = () => {
         className={css({
           position: "absolute",
           right: "0",
-          bottom: "-15rem",
+          bottom: "-16rem",
           marginRight: "0.25rem",
           marginBottom: "0.25rem",
         })}
@@ -25,7 +25,7 @@ export const RightBottomDecoration = () => {
               width: "0.25rem",
               height: "1rem",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -37,7 +37,7 @@ export const RightBottomDecoration = () => {
               height: "0.3rem",
               borderRight: "solid 1px",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -46,7 +46,7 @@ export const RightBottomDecoration = () => {
               height: "0.3rem",
               borderY: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -55,7 +55,7 @@ export const RightBottomDecoration = () => {
               height: "0.3rem",
               borderBottom: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -67,7 +67,7 @@ export const RightBottomDecoration = () => {
               height: "0.25rem",
               borderX: "solid 1px",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -76,7 +76,7 @@ export const RightBottomDecoration = () => {
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -84,7 +84,7 @@ export const RightBottomDecoration = () => {
               width: "0.25rem",
               height: "0.25rem",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>
@@ -95,7 +95,7 @@ export const RightBottomDecoration = () => {
               width: "5rem",
               height: "0.25rem",
               borderBottom: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -104,7 +104,7 @@ export const RightBottomDecoration = () => {
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -112,7 +112,7 @@ export const RightBottomDecoration = () => {
               width: "0.25rem",
               height: "0.25rem",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
           <div
@@ -121,7 +121,7 @@ export const RightBottomDecoration = () => {
               height: "0.25rem",
               borderBottom: "solid 1px",
               borderRight: "solid 1px",
-              borderColor: "primary",
+              borderColor: "beige",
             })}
           ></div>
         </div>

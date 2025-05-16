@@ -1,16 +1,22 @@
 import ShinyText from "@/blocks/TextAnimations/ShinyText/ShinyText";
 import { css } from "@panda/css";
-import { WaitingTimes } from "./internal/WaitTimes";
+import { useHeroAreaContext } from "@/app/provider";
+import CircularText from "@/blocks/TextAnimations/CircularText/CircularText";
+import CountUp from "@/blocks/TextAnimations/CountUp/CountUp";
+import Link from "next/link";
+import { RiExternalLinkLine } from "@remixicon/react";
 
-export const FloatingButton = () => {
+export const FloatingButton = ({ wait, error }: { wait: number | null, error: string | null }) => {
+  const { inView: isHeroAreaInView } = useHeroAreaContext();
+  if (isHeroAreaInView) return null;
   return (
+	<>
     <div
       className={css({
-        width: "full",
-        height: "calc(15lvh+0.5rem)",
+        width: "fit-content",
         position: "fixed",
-        bottom: "0.5rem",
-
+        top: "0.5rem",
+		right: "0.5rem",
         rounded: "full",
         display: "flex",
         gap: "1rem",
@@ -18,29 +24,89 @@ export const FloatingButton = () => {
         justifyContent: "center",
       })}
     >
-      <button
-        type="button"
+      <Link
+        href="https://gogatsusai.jp/98/visitor/project/165"
         className={css({
-          flex: 1,
-          background:
-            "radial-gradient(circle at center, rgba(204,0,18,255), #f7471b)",
-          padding: "1rem",
-          rounded: "5rem",
-          marginLeft: "6rem",
+          width: "fit-content",
+          height: "full",
+		  display: "flex",
+		  alignItems: "center",
+		  justifyContent: "center",
+          background:"black",
+		  color: 'beige',
+          padding: "0.5rem",
+		  gap: "0.25rem",
+          rounded: "lg",
+		  animationName: "breathing",
+		  animationDuration: "2s",
+		  animationIterationCount: "infinite",
+		  animationTimingFunction: "ease-in-out",
+		  animationFillMode: "forwards",
         })}
-      >
-        <ShinyText
-          text="投票ボタン"
-          speed={1.5}
-          className={css({
-            fontWeight: "bold",
-            color: "#cccccc",
-            lineHeight: "1.25",
-            fontSize: "1.25rem",
-          })}
-        />
-      </button>
-      <WaitingTimes />
+      	>
+		{"投票はこちら"}
+		<RiExternalLinkLine
+                className={css({
+                  display: "inline",
+                  height: "1rem",
+                  width: "1rem",
+                  color: "white",
+                })}
+              />
+      </Link>
+	  <div
+      className={css({
+        width: "fit-content",
+        position: "fixed",
+        bottom: "0.5rem",
+		left: "0.5rem",
+        rounded: "full",
+        display: "flex",
+        gap: "1rem",
+        alignItems: "flex-end",
+        justifyContent: "center",
+      })}
+    >
+      <section
+			className={css({
+				display: "flex",
+				flexDirection: "column",
+				gap: "0.25rem",
+				alignItems: "center",
+				justifyContent: "center",
+				position: "relative",
+				backgroundColor: "black",
+				borderRadius: "lg",
+				fontWeight: "bold",
+				color: "beige",
+				padding: "0.25rem",
+				animationName: "pop",
+				animationDuration: '2s',
+				animationIterationCount: 'infinite',
+				animationTimingFunction: "ease-in-out",
+				animationFillMode: 'forwards',
+			})}
+		>
+			<p>{"待ち時間"}</p>
+			{wait !== null ? (
+				<p
+					className={css({
+						display: "flex",
+						alignItems: "center",
+						gap: "0.25rem",
+					})}
+				>
+					<CountUp 
+						from={0} 
+						to={isHeroAreaInView ? 0 : wait}
+						/>分
+				</p>
+			) : (
+				<p>...</p>
+			)}
+		</section>
+		</div>
     </div>
+	</>
   );
 };
