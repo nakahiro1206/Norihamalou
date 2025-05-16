@@ -52,7 +52,7 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
-          color: "beige",
+          color: "white",
         })}
       >
         <p>
