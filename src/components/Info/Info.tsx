@@ -140,7 +140,7 @@ export const Info = ({ wait, error }: { wait: number | null, error: string | nul
               fontSize: 'xl',
               paddingX: '0.25rem',
             })}>
-              {`${wait}`}
+              {wait ? `${wait}` : `...`}
             </span>
             {"分"}
           </div>
