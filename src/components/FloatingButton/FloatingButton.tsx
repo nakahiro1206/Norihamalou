@@ -98,7 +98,7 @@ export const FloatingButton = ({ wait, error }: { wait: number | null, error: st
 				>
 					<CountUp 
 						from={0} 
-						to={wait}
+						to={isHeroAreaInView ? 0 : wait}
 						/>分
 				</p>
 			) : (
