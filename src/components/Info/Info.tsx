@@ -202,8 +202,6 @@ export const Info = ({
 							})}
 						>
 							<p className={css({ fontSize: "lg", fontWeight: 500 })}>
-								{"五月祭No.1企画へ"}
-								<br />
 								{"乘濵楼へのご投票よろしくお願いします。"}
 							</p>
 							<Link href="https://gogatsusai.jp/98/visitor/project/165">
@@ -215,34 +213,9 @@ export const Info = ({
 										color: "beige",
 										cursor: "pointer",
 										transition: "color 0.2s",
-										// デフォルトで下線を表示（モバイル優先）
-										"&::after": {
-											content: '""',
-											display: "block",
-											position: "absolute",
-											left: 0,
-											bottom: "-0.1em",
-											height: "1px",
-											width: "100%",
-											background: "primary",
-											borderRadius: "1px",
-											transition: "width 0.3s cubic-bezier(.4,0,.2,1)",
-										},
-										// PCサイズ以上でアニメーション
-										"@media (hover: hover) and (pointer: fine)": {
-											"&::after": {
-												width: "0",
-											},
-											_hover: {
-												color: "#ff4e50",
-												"&::after": {
-													width: "100%",
-												},
-											},
-										},
-										_active: {
-											color: "primary",
-										},
+										textDecoration: "underline",
+										textDecorationColor: "beige",
+										textDecorationThickness: "0.05rem",
 									})}
 								>
 									<RiLinksLine
@@ -250,7 +223,7 @@ export const Info = ({
 											height: "1.1em",
 											width: "1.1em",
 											marginRight: "0.3em",
-											color: "primary",
+											color: "beige",
 											fontSize: "1.1em",
 										}}
 									/>
