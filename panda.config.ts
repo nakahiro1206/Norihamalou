@@ -175,6 +175,16 @@ export default defineConfig({
 						boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
 					},
 				},
+				fadeInUp: {
+					from: {
+						opacity: "0",
+						transform: "translateY(40px) scale(0.95)",
+					},
+					to: {
+						opacity: "1",
+						transform: "translateY(0) scale(1)",
+					},
+				},
 			},
 		},
 	},
