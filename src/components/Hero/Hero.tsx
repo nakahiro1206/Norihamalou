@@ -79,21 +79,15 @@ export const Hero = () => {
 					<div
 						className={css({
 							display: "flex",
+							width: "full",
+							justifyContent: "center",
 							alignItems: "center",
 						})}
 					>
 						<span
 							className={css({
-								display: "inline-block",
-								width: "2px",
-								height: "1.7rem",
-								marginRight: "1rem",
-								borderRadius: "1px",
-							})}
-						/>
-						<span
-							className={css({
 								color: "beige",
+								textAlign: "center",
 								fontSize: "1.1rem",
 								letterSpacing: "0.1em",
 								fontFamily: "zenOldMincho, serif",
@@ -103,13 +97,17 @@ export const Hero = () => {
 						</span>
 					</div>
 					{/* Main Title */}
-					<h1 className={css({
-						color: "beige",
-						fontSize: { base: "2.5rem", md: "3.8rem", lg: "4.8rem" },
-						fontWeight: 700,
-						lineHeight: 1.1,
-						fontFamily: "zenOldMincho, serif",
-					})}>本格麻婆豆腐のりハマろう</h1>
+					<Image
+						src="/header.png"
+						alt="Norihama-lou icon"
+						width={1000}
+						height={1000}
+						className={css({
+						width: "full",
+						objectFit: "contain",
+						objectPosition: "left",
+						})}
+					/>
 					{/* Description */}
 					<p
 						className={css({
@@ -127,18 +125,6 @@ export const Hero = () => {
 						<br />
 						{"高級中華にも引けをとらない本気の味をご賞味あれ。"}
 					</p>
-
-					<div
-						className={css({
-							position: "absolute",
-							width: "40vw",
-							height: "40vw",
-							borderRadius: "50%",
-							background:
-								"radial-gradient(circle, rgba(255,0,0,0.5) 0%, rgba(0,0,0,0) 80%)",
-							pointerEvents: "none",
-						})}
-					/>
 				</div>
 			</div>
 			{/* Right (Image) */}
@@ -183,7 +169,7 @@ export const Hero = () => {
 						position: "absolute",
 						inset: 0,
 						background:
-							"linear-gradient(90deg, rgba(21, 15, 15, 0.6) 0%, rgba(0,0,0,0.2) 100%)",
+							"linear-gradient(90deg, rgba(21, 15, 15, 0.7) 0%, rgba(0,0,0,0.2) 100%)",
 					})}
 				/>
 			</div>
