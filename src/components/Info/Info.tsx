@@ -53,7 +53,7 @@ const AnimatedSection = ({
 	children: React.ReactNode;
 	delay?: number;
 }) => {
-	const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+	const { ref, inView } = useInView({ threshold: 0.2});
 	return (
 		<div
 			ref={ref}
@@ -85,6 +85,7 @@ export const Info = ({
 					flexDirection: "column",
 					gap: "1rem",
 					color: "white",
+					textAlign: "center",
 				})}
 			>
 				<AnimatedSection delay={1000}>
@@ -195,7 +196,7 @@ export const Info = ({
 								display: "flex",
 								flexDirection: "column",
 								alignItems: "center",
-								gap: "2rem",
+								gap: "0.5rem",
 								width: "full",
 								textAlign: "center",
 							})}
@@ -203,7 +204,7 @@ export const Info = ({
 							<p className={css({ fontSize: "lg", fontWeight: 500 })}>
 								{"五月祭No.1企画へ"}
 								<br />
-								{"乘濵楼へのご投票よろしくお願いします！！"}
+								{"乘濵楼へのご投票よろしくお願いします。"}
 							</p>
 							<Link href="https://gogatsusai.jp/98/visitor/project/165">
 								<span
@@ -211,8 +212,7 @@ export const Info = ({
 										position: "relative",
 										display: "inline-flex",
 										alignItems: "center",
-										gap: "0.4em",
-										color: "white",
+										color: "beige",
 										cursor: "pointer",
 										transition: "color 0.2s",
 										// デフォルトで下線を表示（モバイル優先）
@@ -222,9 +222,9 @@ export const Info = ({
 											position: "absolute",
 											left: 0,
 											bottom: "-0.1em",
-											height: "2px",
+											height: "1px",
 											width: "100%",
-											background: "linear-gradient(90deg, #ff4e50, #f9d423)",
+											background: "primary",
 											borderRadius: "1px",
 											transition: "width 0.3s cubic-bezier(.4,0,.2,1)",
 										},
@@ -241,14 +241,16 @@ export const Info = ({
 											},
 										},
 										_active: {
-											color: "#f9d423",
+											color: "primary",
 										},
 									})}
 								>
 									<RiLinksLine
 										style={{
+											height: "1.1em",
+											width: "1.1em",
 											marginRight: "0.3em",
-											color: "var(--accent, #ff4e50)",
+											color: "primary",
 											fontSize: "1.1em",
 										}}
 									/>

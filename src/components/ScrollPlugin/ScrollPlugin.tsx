@@ -7,8 +7,7 @@ export const scrollToSection = (id: Tags) => {
   if (window === undefined) return;
   const element = document.getElementById(id);
   if (element) {
-    const offset = window.innerHeight * 0.05; // 5vh in pixels
-    const y = element.getBoundingClientRect().top + window.scrollY - offset;
+    const y = element.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({ top: y, behavior: "smooth" });
     // To prevent default transition, it does not change window location.
     // This location change will not trigger hashChange.
