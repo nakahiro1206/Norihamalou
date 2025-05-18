@@ -49,8 +49,8 @@ export const Hero = () => {
 						display: "flex",
 						alignItems: "center",
 						justifyContent: "center",
-						width: { base: "4.5rem", md: "12.5vw" },
-						height: { base: "4.5rem", md: "12.5vw" },
+						width: '50%',
+						height: 'fit-content',
 						zIndex: 2,
 					})}
 				>

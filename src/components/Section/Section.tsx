@@ -41,7 +41,7 @@ export const idToLabel = (id: Tags): string | typeof HeaderImg => {
     case "access":
       return "アクセス";
     case "about-us":
-      return "ストーリー";
+      return "ご挨拶";
     case "blog":
       return "こだわり";
     case "tips":

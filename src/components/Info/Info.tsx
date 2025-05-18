@@ -201,30 +201,28 @@ export const Info = ({
 								textAlign: "center",
 							})}
 						>
-							<p className={css({ fontSize: "lg", fontWeight: 500 })}>
-								{"乘濵楼へのご投票よろしくお願いします。"}
-							</p>
+							乘濵楼へのご投票よろしくお願いいたします。
 							<Link href="https://gogatsusai.jp/98/visitor/project/165">
 								<span
 									className={css({
 										position: "relative",
 										display: "inline-flex",
 										alignItems: "center",
-										color: "beige",
+										color: "white",
 										cursor: "pointer",
 										transition: "color 0.2s",
 										textDecoration: "underline",
-										textDecorationColor: "beige",
+										textDecorationColor: "white",
 										textDecorationThickness: "0.05rem",
 									})}
 								>
 									<RiLinksLine
 										style={{
-											height: "1.1em",
-											width: "1.1em",
-											marginRight: "0.3em",
-											color: "beige",
-											fontSize: "1.1em",
+											display: 'inline-block',
+											height: "1rem",
+											width: "1rem",
+											marginRight: "0.3rem",
+											color: "white",
 										}}
 									/>
 									投票フォームはこちら
