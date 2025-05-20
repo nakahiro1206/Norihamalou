@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 		url: "https://norihamaro.vercel.app/",
 		images: [
 			{
-				url: "https://norihamaro.vercel.app/ogp.png",
+				url: "https://norihamaro.vercel.app/ogp.png?12345",
 				width: 1200,
 				height: 630,
 				alt: "本格麻婆豆腐 乘濵楼",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "本格麻婆豆腐 乘濵楼",
 		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
-		images: ["https://norihamaro.vercel.app/ogp.png"],
+		images: ["https://norihamaro.vercel.app/ogp.png?12345"],
 	},
 };
 
