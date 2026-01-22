@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import {
-	Geist,
-	Geist_Mono,
-	Hina_Mincho,
-	Zen_Old_Mincho,
-} from "next/font/google";
+import { Hina_Mincho, Zen_Old_Mincho } from "next/font/google";
 import "./globals.css";
-import { MenuProvider } from "@/app/provider";
-import { FreezeWhileMenuOpen } from "@/components/FreezeWhileMenuOpen";
-import { Header } from "@/components/Header/Header";
 import { css } from "@panda/css";
+import { MenuProvider, FreezeWhileMenuOpen } from "@/context/provider";
 
 const hinaMincho = Hina_Mincho({
 	variable: "--fonts-hina-mincho",
@@ -26,10 +19,12 @@ const zenOldMincho = Zen_Old_Mincho({
 export const metadata: Metadata = {
 	metadataBase: new URL("https://norihamaro.vercel.app/"),
 	title: "本格麻婆豆腐 乘濵楼",
-	description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+	description:
+		"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 	openGraph: {
 		title: "本格麻婆豆腐 乘濵楼",
-		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+		description:
+			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 		url: "https://norihamaro.vercel.app/",
 		images: [
 			{
@@ -44,7 +39,8 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title: "本格麻婆豆腐 乘濵楼",
-		description: "都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
+		description:
+			"都内の麻婆豆腐を100軒以上食べめぐり、たどり着いた究極の麻婆。高級中華にも引けをとらない本気の味をご賞味あれ。",
 		images: ["https://norihamaro.vercel.app/ogp_compressed.png"],
 	},
 };

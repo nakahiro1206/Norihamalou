@@ -1,5 +1,5 @@
 import { type FC, useEffect, useRef } from "react";
-import ParticleSystem from "./particle";
+import { ParticleSystem } from "./particle";
 
 export const ParticleBackground: FC = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);

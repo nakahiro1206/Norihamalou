@@ -1,11 +1,19 @@
 import { css } from "@panda/css";
 import { useEffect, useState } from "react";
 import { textLineStyle } from "./AnimatedText.recipe";
+type TextNode = {
+	id: number;
+	text: string;
+};
 export const AnimatedText = ({
 	texts,
 	delay,
 	span = 1000,
-}: { texts: string[]; delay: number; span?: number }) => {
+}: {
+	texts: TextNode[];
+	delay: number;
+	span?: number;
+}) => {
 	const [visibleIndices, setVisibleIndices] = useState<boolean[]>(
 		Array(texts.length).fill(false),
 	);
@@ -37,12 +45,12 @@ export const AnimatedText = ({
 				minHeight: "320px",
 			})}
 		>
-			{texts.map((text, index) => (
+			{texts.map((text) => (
 				<div
-					key={`animated-text-${index}`}
-					className={textLineStyle({ visible: visibleIndices[index] })}
+					key={text.id}
+					className={textLineStyle({ visible: visibleIndices[text.id] })}
 				>
-					{text}
+					{text.text}
 				</div>
 			))}
 		</div>

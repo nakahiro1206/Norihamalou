@@ -1,4 +1,4 @@
-export interface Particle {
+interface Particle {
 	x: number;
 	y: number;
 	size: number;
@@ -16,10 +16,6 @@ export class ParticleSystem {
 	private ctx: CanvasRenderingContext2D | null = null;
 	private particles: Particle[] = [];
 	private animationFrameId: number | null = null;
-	private mouseX = 0;
-	private mouseY = 0;
-	private isMouseMoving = false;
-	private mouseTimer: ReturnType<typeof setTimeout> | null = null;
 
 	constructor(
 		canvasId: string,
@@ -154,5 +150,3 @@ export class ParticleSystem {
 		}
 	}
 }
-
-export default ParticleSystem;
